@@ -1,73 +1,61 @@
-{
-  "center": [
-    0,
-    0
-  ],
-  "glyphs": "https://ubukawa.github.io/style_test/docs/font/{fontstack}/{range}.pbf",
-  "layers": [
+{"version": 8,"name": "test","metadata": {},
+"sources": {
+    "v": {
+      "type": "vector",
+      "tiles": [
+        "https://www.unvt-test.com:3000/un-small_min3/{z}/{x}/{y}.pbf"
+      ], 
+      "maxzoom": 3, 
+      "minzoom": 0, 
+      "attribution": "Test, <img src='https://unopengis.github.io/watermark/watermark.png'>"
+    }
+}, 
+"sprite": "https://ubukawa.github.io/style_test/docs/sprite/sprite",
+"glyphs": "https://ubukawa.github.io/style_test/docs/font/{fontstack}/{range}.pbf",
+"layers": [
     {
-      "id": "background",
-      "paint": {
-        "background-color": [
-          "rgb",
-          146,
-          171,
-          230
-        ]
-      },
-      "type": "background"
+      "id": "back",
+      "type": "background",
+      "layout": {"visibility": "visible"},
+      "paint": {"background-color": "rgba(146, 171, 230, 1)"}
     },
     {
       "id": "bnda",
       "source": "v",
       "source-layer": "bnda_cty",
       "type": "fill",
-      "minzoom": 1,
-      "maxzoom": 2,
+      "minzoom": 0,
+      "maxzoom": 5,
       "layout": {"visibility": "visible"},
       "paint": {"fill-color": "rgba(220, 213, 143, 1)"}
+    },
+     {
+      "id": "bndl_intl",
+      "type": "line",
+      "source": "v",
+      "source-layer": "bndl25",
+      "minzoom": 0,
+      "maxzoom": 5,
+      "filter": [
+        "all",
+        ["==", "bdytyp", "International boundary"]
+      ],
+      "layout": {"visibility": "visible"}
     },
      {
       "id": "Coastline",
       "type": "line",
       "source": "v",
       "source-layer": "bndl25",
-      "minzoom": 1,
-      "maxzoom": 2,
+      "minzoom": 0,
+      "maxzoom": 5,
       "filter": [
         "all",
-        ["==", "bdytype", "Coastline"]
+        ["==", "bdytyp", "Coastline"]
       ],
       "layout": {"visibility": "visible"},
-      "paint": {"line-color": "rgba(253, 0, 0, 1)"}
-    },
-    {
-      "id": "Int",
-      "type": "line",
-      "source": "v",
-      "source-layer": "bndl25",
-      "minzoom": 1,
-      "maxzoom": 2,
-      "filter": [
-        "all",
-        ["==", "bdytype", "International boundary"]
-      ],
-      "layout": {"visibility": "visible"},
-      "paint": {"line-color": "rgba(253, 0, 0, 1)"}
+      "paint": {"line-color": "rgba(33, 150, 243, 1)"}
     }
-  ],
-  "site_root": "https://ubukawa.github.io/style_test/docs",
-  "sources": {
-    "v": {
-      "attribution": "Test, <img src='https://unopengis.github.io/watermark/watermark.png'>",
-      "maxzoom": 2,
-      "tiles": [
-        "https://www.unvt-test.com:3000/un-small_min3/{z}/{x}/{y}.pbf"
-      ],
-      "type": "vector"
-    }
-  },
-  "sprite": "https://ubukawa.github.io/style_test/docs/sprite/sprite",
-  "version": 8,
-  "zoom": 10
+ ],
+"id": "vector-sample"
 }
