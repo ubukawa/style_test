@@ -54,12 +54,7 @@
       ],
       "layout": {"visibility": "visible"},
       "paint": {"line-color": "rgba(253, 0, 0, 1)"}
-    },
-
-
-
-
-   
+    }
   ],
   "site_root": "https://ubukawa.github.io/style_test/docs",
   "sources": {
