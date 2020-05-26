@@ -1,2 +1,4 @@
 # style_test
-test site for style
+test site for style  
+
+https://ubukawa.github.io/style_test/index.html
