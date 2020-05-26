@@ -38,7 +38,7 @@
       "maxzoom": 5,
       "filter": [
         "all",
-        ["==", "bdytype", "International boundary"]
+        ["==", "bdytyp", "International boundary"]
       ],
       "layout": {"visibility": "visible"}
     },
@@ -51,7 +51,7 @@
       "maxzoom": 5,
       "filter": [
         "all",
-        ["==", "bdytype", "Coastline"]
+        ["==", "bdytyp", "Coastline"]
       ],
       "layout": {"visibility": "visible"},
       "paint": {"line-color": "rgba(0, 255, 0, 1)"}
