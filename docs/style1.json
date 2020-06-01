@@ -5,7 +5,7 @@
       "tiles": [
         "https://www.unvt-test.com:3000/un-small_min3/{z}/{x}/{y}.pbf"
       ], 
-      "maxzoom": 3, 
+      "maxzoom": 5, 
       "minzoom": 0, 
       "attribution": "Test, <img src='https://unopengis.github.io/watermark/watermark.png'>"
     }
@@ -58,9 +58,9 @@
       "paint": {"line-color": "rgba(33, 150, 243, 1)"}
      },
      {
-      "id":"text",
+      "id":"bnda_text",
       "layout":{"text-allow-overlap":true,
-      "text-field":["step",["zoom"],["get","iso3cd"],2,["get","maplab"]],
+      "text-field":["step",["zoom"],["get","iso3cd"],2,["get","maplab"],3,["get","maplab"],4],
       "text-font":["suns"],
       "text-size":["step",["zoom"],9,1,14]},
       "paint":{},
