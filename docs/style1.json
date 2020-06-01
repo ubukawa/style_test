@@ -75,6 +75,34 @@
       "layout": {"visibility": "visible"},
       "paint": {"line-color": "rgba(255, 51, 51, 1)"}
     },
+     {
+      "id": "bndl25_other",
+      "type": "line",
+      "source": "v",
+      "source-layer": "bndl25",
+      "minzoom": 0,
+      "maxzoom": 5,
+      "filter": [
+        "all",
+        ["==", "bdytyp", "Other"]
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": "rgba(255, 0, 127, 1)"}
+    },
+     {
+      "id": "bndl25_other2",
+      "type": "line",
+      "source": "v",
+      "source-layer": "bndl25",
+      "minzoom": 0,
+      "maxzoom": 5,
+      "filter": [
+        "all",
+        ["==", "bdytyp", "Other line of separation"]
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": "rgba(153, 51, 255, 1)"}
+    },
       {
       "id": "bndl25_Coastline",
       "type": "line",
