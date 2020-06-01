@@ -5,7 +5,7 @@
       "tiles": [
         "https://www.unvt-test.com:3000/un-small_min3/{z}/{x}/{y}.pbf"
       ], 
-      "maxzoom": 3, 
+      "maxzoom": 5, 
       "minzoom": 0, 
       "attribution": "Test, <img src='https://unopengis.github.io/watermark/watermark.png'>"
     }
