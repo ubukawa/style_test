@@ -43,7 +43,49 @@
       "layout": {"visibility": "visible"},
       "paint": {"line-color": "rgba(33, 150, 243, 1)"}
     },
-      {
+     {
+      "id": "bndl25_Armistice",
+      "type": "line",
+      "source": "v",
+      "source-layer": "bndl25",
+      "minzoom": 0,
+      "maxzoom": 5,
+      "filter": [
+        "all",
+        ["==", "bdytyp", "Armistice or International administrative line"]
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": "rgba(33, 150, 243, 1)"}
+    },
+     {
+      "id": "bndl25_other",
+      "type": "line",
+      "source": "v",
+      "source-layer": "bndl25",
+      "minzoom": 0,
+      "maxzoom": 5,
+      "filter": [
+        "all",
+        ["==", "bdytyp", "Other line of separation"]
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": "rgba(33, 150, 243, 1)"}
+    },
+     {
+      "id": "bndl25_spatial",
+      "type": "line",
+      "source": "v",
+      "source-layer": "bndl25",
+      "minzoom": 0,
+      "maxzoom": 5,
+      "filter": [
+        "all",
+        ["==", "bdytyp", "Special boundary line"]
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": "rgba(33, 150, 243, 1)"}
+    },
+     {
       "id": "bndl25_Coastline",
       "type": "line",
       "source": "v",
