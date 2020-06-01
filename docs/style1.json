@@ -98,17 +98,6 @@
       ],
       "layout": {"visibility": "visible"},
       "paint": {"line-color": "rgba(33, 150, 243, 1)"}
-    },
-    {
-      "id":"text",
-      "layout":{"text-allow-overlap":true,
-      "text-field":["step",["zoom"],["get","iso3cd"],3,["get","maplab"]],
-      "text-font":["Suns"],
-      "text-size":["step",["zoom"],9,1,14]},
-      "paint":{},
-      "source":"v",
-      "source-layer":"bnda_cty",
-      "type":"symbol"
      }
  ],
 "id": "vector-sample"
