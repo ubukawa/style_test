@@ -1,0 +1,115 @@
+{"version": 8,"name": "test","metadata": {},
+"sources": {
+    "v": {
+      "type": "vector",
+      "tiles": [
+        "https://www.unvt-test.com:3000/un-small_min3/{z}/{x}/{y}.pbf"
+      ], 
+      "maxzoom": 3, 
+      "minzoom": 0, 
+      "attribution": "Test, <img src='https://unopengis.github.io/watermark/watermark.png'>"
+    }
+}, 
+"sprite": "https://ubukawa.github.io/style_test/docs/sprite/sprite",
+"glyphs": "https://ubukawa.github.io/style_test/docs/font/{fontstack}/{range}.pbf",
+"layers": [
+    {
+      "id": "back",
+      "type": "background",
+      "layout": {"visibility": "visible"},
+      "paint": {"background-color": "rgba(146, 171, 230, 1)"}
+    },
+    {
+      "id": "bnda",
+      "source": "v",
+      "source-layer": "bnda_cty",
+      "type": "fill",
+      "minzoom": 0,
+      "maxzoom": 5,
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(220, 213, 143, 1)"}
+    },
+     {
+      "id": "bndl25_intl",
+      "type": "line",
+      "source": "v",
+      "source-layer": "bndl25",
+      "minzoom": 0,
+      "maxzoom": 5,
+      "filter": [
+        "all",
+        ["==", "bdytyp", "International boundary"]
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": "rgba(33, 150, 243, 1)"}
+    },
+     {
+      "id": "bndl25_Armistice",
+      "type": "line",
+      "source": "v",
+      "source-layer": "bndl25",
+      "minzoom": 0,
+      "maxzoom": 5,
+      "filter": [
+        "all",
+        ["==", "bdytyp", "Armistice or International administrative line"]
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": "rgba(33, 150, 243, 1)"}
+    },
+     {
+      "id": "bndl25_other",
+      "type": "line",
+      "source": "v",
+      "source-layer": "bndl25",
+      "minzoom": 0,
+      "maxzoom": 5,
+      "filter": [
+        "all",
+        ["==", "bdytyp", "Other line of separation"]
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": "rgba(33, 150, 243, 1)"}
+    },
+     {
+      "id": "bndl25_spatial",
+      "type": "line",
+      "source": "v",
+      "source-layer": "bndl25",
+      "minzoom": 0,
+      "maxzoom": 5,
+      "filter": [
+        "all",
+        ["==", "bdytyp", "Special boundary line"]
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": "rgba(33, 150, 243, 1)"}
+    },
+     {
+      "id": "bndl25_Coastline",
+      "type": "line",
+      "source": "v",
+      "source-layer": "bndl25",
+      "minzoom": 0,
+      "maxzoom": 5,
+      "filter": [
+        "all",
+        ["==", "bdytyp", "Coastline"]
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": "rgba(33, 150, 243, 1)"}
+    },
+    {
+      "id":"text",
+      "layout":{"text-allow-overlap":true,
+      "text-field":["step",["zoom"],["get","iso3cd"],3,["get","maplab"]],
+      "text-font":["Suns"],
+      "text-size":["step",["zoom"],9,1,14]},
+      "paint":{},
+      "source":"v",
+      "source-layer":"bnda_cty",
+      "type":"symbol"
+     }
+ ],
+"id": "vector-sample"
+}
