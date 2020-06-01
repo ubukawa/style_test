@@ -5,7 +5,7 @@
       "tiles": [
         "https://www.unvt-test.com:3000/un-small_min3/{z}/{x}/{y}.pbf"
       ], 
-      "maxzoom": 5, 
+      "maxzoom": 3, 
       "minzoom": 0, 
       "attribution": "Test, <img src='https://unopengis.github.io/watermark/watermark.png'>"
     }
@@ -25,7 +25,7 @@
       "source-layer": "bnda_cty",
       "type": "fill",
       "minzoom": 0,
-      "maxzoom": 5,
+      "maxzoom": 6,
       "layout": {"visibility": "visible"},
       "paint": {"fill-color": "rgba(220, 213, 143,1)"}
     },
