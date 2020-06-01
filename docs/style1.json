@@ -122,8 +122,7 @@
           "stscod"
         ],
         [
-          "State",
-          "MultiPolygon"
+          "State"
         ],
         true,
         false
