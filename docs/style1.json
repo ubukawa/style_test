@@ -54,11 +54,27 @@
       "maxzoom": 3,
       "filter": [
         "all",
-        ["==", "bdytyp", "Armistice or Internatioonal administrative line"]
+        ["==", "bdytyp", "Armistice or International administrative line"]
       ],
       "layout": {"visibility": "visible"},
       "paint": {"line-color": ["rgb", 92, 99, 102],
                 "line-dasharray":[4,4,4,4],
+                "line-width":1 }
+    },
+     {
+      "id": "bndl25_special",
+      "type": "line",
+      "source": "v",
+      "source-layer": "bndl25",
+      "minzoom": 0,
+      "maxzoom": 3,
+      "filter": [
+        "all",
+        ["==", "bdytyp", "Special boundary line"]
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": ["rgb", 92, 99, 102],
+                "line-dasharray":[2,2,2,2],
                 "line-width":1 }
     },
       {
