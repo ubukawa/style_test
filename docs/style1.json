@@ -116,40 +116,7 @@
       ],
       "layout": {"visibility": "visible"},
       "paint": {"line-color": "rgba(33, 150, 243, 1)"}
-      },
-     {"filter": [
-       "match",
-       [
-          "get",
-          "stscod"
-       ],
-       "State",
-        [
-          "match",
-          [
-            "geometry-type"
-          ],
-          [
-            "Polygon",
-            "MultiPolygon"
-          ],
-          true,
-          false
-        ],
-        false
-       ],
-      "id":"bnda_text",
-      "layout":{"text-allow-overlap":true,
-      "text-field":["step",["zoom"],["get","iso3cd"],2,["get","maplab"],4,["get","romnam"]],
-      "text-font":["sans"],
-      "text-size":["step",["zoom"],9,1,14]},
-      "paint":{"text-color": ["rgb", 0, 0, 0],
-               "text-halo-color": ["rgb", 238, 238, 238],
-               "text-halo-width":1 },
-      "source":"v",
-      "source-layer":"bnda_cty",
-      "type":"symbol"
-     }
+      }
  ],
 "id": "vector-sample"
 }
