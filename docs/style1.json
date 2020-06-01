@@ -27,7 +27,7 @@
       "minzoom": 0,
       "maxzoom": 3,
       "layout": {"visibility": "visible"},
-      "paint": {"fill-color": "rgb(220, 213, 143)"}
+      "paint": {"fill-color": "rgba(220, 213, 143,1)"}
     },
      {
       "id": "bndl25_intl",
@@ -43,7 +43,23 @@
       "layout": {"visibility": "visible"},
       "paint": {"line-color": ["rgb", 92, 99, 102],
                 "line-dasharray":[6,1,1,1,1,1],
-                "line-width":2 }
+                "line-width":1 }
+    },
+     {
+      "id": "bndl25_armistice",
+      "type": "line",
+      "source": "v",
+      "source-layer": "bndl25",
+      "minzoom": 0,
+      "maxzoom": 3,
+      "filter": [
+        "all",
+        ["==", "bdytyp", "Armistice or Internatioonal administrative line"]
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": ["rgb", 92, 99, 102],
+                "line-dasharray":[4,4,4,4],
+                "line-width":1 }
     },
       {
       "id": "bndl25_Coastline",
