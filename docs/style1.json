@@ -24,8 +24,8 @@
       "source": "v",
       "source-layer": "bnda_cty",
       "type": "fill",
-      "minzoom": 1,
-      "maxzoom": 4,
+      "minzoom": 0,
+      "maxzoom": 5,
       "layout": {"visibility": "visible"},
       "paint": {"fill-color": "rgba(220, 213, 143,1)"}
     },
@@ -35,7 +35,7 @@
       "source": "v",
       "source-layer": "bndl25",
       "minzoom": 0,
-      "maxzoom": 3,
+      "maxzoom": 5,
       "filter": [
         "all",
         ["==", "bdytyp", "International boundary"]
@@ -51,7 +51,7 @@
       "source": "v",
       "source-layer": "bndl25",
       "minzoom": 0,
-      "maxzoom": 3,
+      "maxzoom": 5,
       "filter": [
         "all",
         ["==", "bdytyp", "Armistice or International administrative line"]
@@ -67,7 +67,7 @@
       "source": "v",
       "source-layer": "bndl25",
       "minzoom": 0,
-      "maxzoom": 3,
+      "maxzoom": 5,
       "filter": [
         "all",
         ["==", "bdytyp", "Special boundary line"]
@@ -81,7 +81,7 @@
       "source": "v",
       "source-layer": "bndl25",
       "minzoom": 0,
-      "maxzoom": 3,
+      "maxzoom": 5,
       "filter": [
         "all",
         ["==", "bdytyp", "Coastline"]
