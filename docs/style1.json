@@ -42,20 +42,7 @@
       ],
       "layout": {"visibility": "visible"}
     },
-     {
-      "id": "bndl_Armistice",
-      "type": "line",
-      "source": "v",
-      "source-layer": "bndl25",
-      "minzoom": 0,
-      "maxzoom": 5,
-      "filter": [
-        "all",
-        ["==", "bdytyp", "Armistice or International administrative line"]
-      ],
-      "layout": {"visibility": "visible"},
-      "paint": {"line-color": "rgba(255, 128, 0, 1)"}
-    },
+
      {
       "id": "Coastline",
       "type": "line",
