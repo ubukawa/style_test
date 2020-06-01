@@ -73,9 +73,7 @@
         ["==", "bdytyp", "Special boundary line"]
       ],
       "layout": {"visibility": "visible"},
-      "paint": {"line-color": ["rgb", 92, 99, 102],
-                "line-dasharray":[2,2,2,2],
-                "line-width":1 }
+      "paint": {"line-color": "rgba(255, 51, 51, 1)"}
     },
       {
       "id": "bndl25_Coastline",
