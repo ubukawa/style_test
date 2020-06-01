@@ -41,7 +41,9 @@
         ["==", "bdytyp", "International boundary"]
       ],
       "layout": {"visibility": "visible"},
-      "paint": {"line-color": "rgba(33, 150, 243, 1)"}
+      "paint": {"line-color": ["rgb", 92, 99, 102],
+                "line-dasharray":[6,1,1,1,1,1],
+                "line-width":2 }
     },
       {
       "id": "bndl25_Coastline",
