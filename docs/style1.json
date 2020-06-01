@@ -117,7 +117,17 @@
       "layout": {"visibility": "visible"},
       "paint": {"line-color": "rgba(33, 150, 243, 1)"}
       },
-     {
+     {"filter": ["match",
+       [
+          "stscod"
+        ],
+        [
+          "State",
+          "MultiPolygon"
+        ],
+        true,
+        false
+      ],
       "id":"bnda_text",
       "layout":{"text-allow-overlap":true,
       "text-field":["step",["zoom"],["get","iso3cd"],2,["get","maplab"],4,["get","romnam"]],
