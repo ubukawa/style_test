@@ -43,6 +43,19 @@
       "layout": {"visibility": "visible"}
     },
      {
+      "id": "bndl_Armistice",
+      "type": "line",
+      "source": "v",
+      "source-layer": "bndl25",
+      "minzoom": 0,
+      "maxzoom": 5,
+      "filter": [
+        "all",
+        ["==", "bdytyp", "Armistice or International administrative line"]
+      ],
+      "layout": {"visibility": "visible"}
+    },
+     {
       "id": "Coastline",
       "type": "line",
       "source": "v",
