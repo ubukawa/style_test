@@ -53,8 +53,8 @@
         "all",
         ["==", "bdytyp", "Armistice or International administrative line"]
       ],
-      "layout": {"visibility": "visible"}
-      "paint": {"line-color": "rgba(254, 128, 0, 1)"}
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": "rgba(255, 128, 0, 1)"}
     },
      {
       "id": "Coastline",
