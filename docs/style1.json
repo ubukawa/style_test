@@ -17,7 +17,7 @@
       "id": "back",
       "type": "background",
       "layout": {"visibility": "visible"},
-      "paint": {"background-color": "rgba(146, 171, 230, 1)"}
+      "paint": {"background-color": "rgb(146, 171, 230)"}
     },
     {
       "id": "bnda",
@@ -27,7 +27,7 @@
       "minzoom": 0,
       "maxzoom": 5,
       "layout": {"visibility": "visible"},
-      "paint": {"fill-color": "rgba(220, 213, 143, 1)"}
+      "paint": {"fill-color": "rgb(220, 213, 143)"}
     },
      {
       "id": "bndl25_intl",
