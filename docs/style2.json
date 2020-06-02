@@ -17,7 +17,7 @@
       "id": "back",
       "type": "background",
       "layout": {"visibility": "visible"},
-      "paint": {"background-color": "rgba(146, 171, 230, 1)"}
+      "paint": {"background-color": "rgb(146, 171, 230)"}
     },
     {
       "id": "bnda",
@@ -25,9 +25,9 @@
       "source-layer": "bnda_cty",
       "type": "fill",
       "minzoom": 0,
-      "maxzoom": 5,
+      "maxzoom": 6,
       "layout": {"visibility": "visible"},
-      "paint": {"fill-color": "rgba(220, 213, 143, 1)"}
+      "paint": {"fill-color": "rgba(220, 213, 143,1)"}
     },
      {
       "id": "bndl25_intl",
@@ -41,10 +41,12 @@
         ["==", "bdytyp", "International boundary"]
       ],
       "layout": {"visibility": "visible"},
-      "paint": {"line-color": "rgba(33, 150, 243, 1)"}
+      "paint": {"line-color": ["rgb", 92, 99, 102],
+                "line-dasharray":[6,1,1,1,1,1],
+                "line-width":1 }
     },
      {
-      "id": "bndl25_Armistice",
+      "id": "bndl25_armistice",
       "type": "line",
       "source": "v",
       "source-layer": "bndl25",
@@ -55,24 +57,12 @@
         ["==", "bdytyp", "Armistice or International administrative line"]
       ],
       "layout": {"visibility": "visible"},
-      "paint": {"line-color": "rgba(33, 150, 243, 1)"}
+      "paint": {"line-color": ["rgb", 92, 99, 102],
+                "line-dasharray":[4,4,4,4],
+                "line-width":1 }
     },
      {
-      "id": "bndl25_other",
-      "type": "line",
-      "source": "v",
-      "source-layer": "bndl25",
-      "minzoom": 0,
-      "maxzoom": 5,
-      "filter": [
-        "all",
-        ["==", "bdytyp", "Other line of separation"]
-      ],
-      "layout": {"visibility": "visible"},
-      "paint": {"line-color": "rgba(33, 150, 243, 1)"}
-    },
-     {
-      "id": "bndl25_spatial",
+      "id": "bndl25_special",
       "type": "line",
       "source": "v",
       "source-layer": "bndl25",
@@ -83,9 +73,37 @@
         ["==", "bdytyp", "Special boundary line"]
       ],
       "layout": {"visibility": "visible"},
-      "paint": {"line-color": "rgba(33, 150, 243, 1)"}
+      "paint": {"line-color": "rgba(255, 51, 51, 1)"}
     },
      {
+      "id": "bndl25_other",
+      "type": "line",
+      "source": "v",
+      "source-layer": "bndl25",
+      "minzoom": 0,
+      "maxzoom": 5,
+      "filter": [
+        "all",
+        ["==", "bdytyp", "Other"]
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": "rgba(255, 0, 127, 1)"}
+    },
+     {
+      "id": "bndl25_other2",
+      "type": "line",
+      "source": "v",
+      "source-layer": "bndl25",
+      "minzoom": 0,
+      "maxzoom": 5,
+      "filter": [
+        "all",
+        ["==", "bdytyp", "Other line of separation"]
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": "rgba(153, 51, 255, 1)"}
+    },
+      {
       "id": "bndl25_Coastline",
       "type": "line",
       "source": "v",
@@ -98,14 +116,36 @@
       ],
       "layout": {"visibility": "visible"},
       "paint": {"line-color": "rgba(33, 150, 243, 1)"}
-    },
-    {
-      "id":"text",
+      },
+     {"filter": [
+       "match",
+       [
+          "get",
+          "stscod"
+       ],
+       "State",
+        [
+          "match",
+          [
+            "geometry-type"
+          ],
+          [
+            "Polygon",
+            "MultiPolygon"
+          ],
+          true,
+          false
+        ],
+        false
+       ],
+      "id":"bnda_text",
       "layout":{"text-allow-overlap":true,
-      "text-field":["step",["zoom"],["get","iso3cd"],3,["get","maplab"]],
-      "text-font":["Suns"],
+      "text-field":["step",["zoom"],["get","iso3cd"],2,["get","maplab"],4,["get","romnam"]],
+      "text-font":["sans"],
       "text-size":["step",["zoom"],9,1,14]},
-      "paint":{},
+      "paint":{"text-color": ["rgb", 0, 0, 0],
+               "text-halo-color": ["rgb", 238, 238, 238],
+               "text-halo-width":1 },
       "source":"v",
       "source-layer":"bnda_cty",
       "type":"symbol"
