@@ -132,7 +132,7 @@
       ],
       "id":"popp_capital",
       "layout":{"text-allow-overlap":true,
-      "text-field":["step",["zoom"],["get","cartolb"],2,["get","cartolb"],5,["get","romnam"]],
+      "text-field":["step",["zoom"],["get","iso3cd"],2,["get","cartolb"],5,["get","romnam"]],
       "text-font":["sans"],
       "text-size":["step",["zoom"],9,1,14]},
       "paint":{"text-color": ["rgb", 0, 0, 0],
@@ -144,11 +144,11 @@
      },
      {  "filter": [
         "all",
-        ["==", "poptyp", "Administrative Capital 1"]
+        ["==", "poptyp", "Administrative capital 1"]
       ],
       "id":"popp_adcapital1",
       "layout":{"text-allow-overlap":true,
-      "text-field":["step",["zoom"],["get","iso3cd"],2,["get","cartolb"],5,["get","romnam"]],
+      "text-field":["step",["zoom"],["get","cartolb"],5,["get","romnam"]],
       "text-font":["sans"],
       "text-size":["step",["zoom"],9,1,14]},
       "paint":{"text-color": ["rgb", 0, 0, 0],
