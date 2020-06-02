@@ -44,7 +44,7 @@
       "source-layer": "bnda_cty",
       "type": "fill",
       "minzoom": 5,
-      "maxzoom": 7,
+      "maxzoom": 8,
       "layout": {"visibility": "visible"},
       "paint": {"fill-color": "rgba(220, 213, 143,1)"}
     },
