@@ -164,7 +164,7 @@
       "paint":{"text-color": ["rgb", 0, 0, 0],
                "text-halo-color": ["rgb", 238, 238, 238],
                "text-halo-width":1 },
-      "minzoom": 3,
+      "minzoom": 4,
       "maxzoom": 8,
       "source":"v2",
       "source-layer":"popp",
