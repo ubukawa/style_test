@@ -169,6 +169,24 @@
       "source":"v2",
       "source-layer":"popp",
       "type":"symbol"
+     },
+     {  "filter": [
+        "all",
+        ["==", "poptyp", "Other populated place"]
+      ],
+      "id":"popp_other",
+      "layout":{"text-allow-overlap":true,
+      "text-field":["step",["zoom"],["get","cartolb"],5,["get","romnam"]],
+      "text-font":["sans"],
+      "text-size":["step",["zoom"],9,1,14]},
+      "paint":{"text-color": ["rgb", 0, 0, 0],
+               "text-halo-color": ["rgb", 238, 238, 238],
+               "text-halo-width":1 },
+      "minzoom": 5,
+      "maxzoom": 8,
+      "source":"v2",
+      "source-layer":"popp",
+      "type":"symbol"
      }
  ],
 "id": "vector-sample"
