@@ -8,6 +8,15 @@
       "maxzoom": 3, 
       "minzoom": 0, 
       "attribution": "Test, <img src='https://unopengis.github.io/watermark/watermark.png'>"
+    },
+    "v2": {
+      "type": "vector",
+      "tiles": [
+        "https://www.unvt-test.com:3000/un-small_min/{z}/{x}/{y}.pbf"
+      ], 
+      "maxzoom": 5, 
+      "minzoom": 3, 
+      "attribution": "Test, <img src='https://unopengis.github.io/watermark/watermark.png'>"
     }
 }, 
 "sprite": "https://ubukawa.github.io/style_test/docs/sprite/sprite",
@@ -117,37 +126,36 @@
       "layout": {"visibility": "visible"},
       "paint": {"line-color": "rgba(33, 150, 243, 1)"}
       },
-     {"filter": [
-       "match",
-       [
-          "get",
-          "stscod"
-       ],
-       "State",
-        [
-          "match",
-          [
-            "geometry-type"
-          ],
-          [
-            "Polygon",
-            "MultiPolygon"
-          ],
-          true,
-          false
-        ],
-        false
-       ],
-      "id":"bnda_text",
+     {  "filter": [
+        "all",
+        ["==", "poptyp", "National Capital"]
+      ],
+      "id":"popp_capital",
       "layout":{"text-allow-overlap":true,
-      "text-field":["step",["zoom"],["get","iso3cd"],2,["get","maplab"],4,["get","romnam"]],
+      "text-field":["step",["zoom"],["get","cartolb"],2,["get","cartolb"],5,["get","romnam"]],
       "text-font":["sans"],
       "text-size":["step",["zoom"],9,1,14]},
       "paint":{"text-color": ["rgb", 0, 0, 0],
                "text-halo-color": ["rgb", 238, 238, 238],
                "text-halo-width":1 },
-      "source":"v",
-      "source-layer":"bnda_cty",
+      "source":"v2",
+      "source-layer":"popp",
+      "type":"symbol"
+     },
+     {  "filter": [
+        "all",
+        ["==", "poptyp", "Administrative Capital 1"]
+      ],
+      "id":"popp_adcapital1",
+      "layout":{"text-allow-overlap":true,
+      "text-field":["step",["zoom"],["get","cartolb"],2,["get","cartolb"],5,["get","romnam"]],
+      "text-font":["sans"],
+      "text-size":["step",["zoom"],9,1,14]},
+      "paint":{"text-color": ["rgb", 0, 0, 0],
+               "text-halo-color": ["rgb", 238, 238, 238],
+               "text-halo-width":1 },
+      "source":"v2",
+      "source-layer":"popp",
       "type":"symbol"
      }
  ],
