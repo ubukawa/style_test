@@ -8,15 +8,6 @@
       "maxzoom": 3, 
       "minzoom": 0, 
       "attribution": "Test, <img src='https://unopengis.github.io/watermark/watermark.png'>"
-    },
-    "v2": {
-      "type": "vector",
-      "tiles": [
-        "https://www.unvt-test.com:3000/un-small_min/{z}/{x}/{y}.pbf"
-      ], 
-      "maxzoom": 5, 
-      "minzoom": 0, 
-      "attribution": "Test, <img src='https://unopengis.github.io/watermark/watermark.png'>"
     }
 }, 
 "sprite": "https://ubukawa.github.io/style_test/docs/sprite/sprite",
@@ -34,17 +25,7 @@
       "source-layer": "bnda_cty",
       "type": "fill",
       "minzoom": 0,
-      "maxzoom": 5,
-      "layout": {"visibility": "visible"},
-      "paint": {"fill-color": "rgba(220, 213, 143,1)"}
-    },
-    {
-      "id": "bnda2",
-      "source": "v2",
-      "source-layer": "bnda_cty",
-      "type": "fill",
-      "minzoom": 5,
-      "maxzoom": 8,
+      "maxzoom": 6,
       "layout": {"visibility": "visible"},
       "paint": {"fill-color": "rgba(220, 213, 143,1)"}
     },
@@ -136,56 +117,37 @@
       "layout": {"visibility": "visible"},
       "paint": {"line-color": "rgba(33, 150, 243, 1)"}
       },
-     {  "filter": [
-        "all",
-        ["==", "poptyp", "National Capital"]
-      ],
-      "id":"popp_capital",
+     {"filter": [
+       "match",
+       [
+          "get",
+          "stscod"
+       ],
+       "State",
+        [
+          "match",
+          [
+            "geometry-type"
+          ],
+          [
+            "Polygon",
+            "MultiPolygon"
+          ],
+          true,
+          false
+        ],
+        false
+       ],
+      "id":"bnda_text",
       "layout":{"text-allow-overlap":true,
-      "text-field":["step",["zoom"],["get","iso3cd"],2,["get","cartolb"],5,["get","romnam"]],
+      "text-field":["step",["zoom"],["get","iso3cd"],2,["get","maplab"],4,["get","romnam"]],
       "text-font":["sans"],
       "text-size":["step",["zoom"],9,1,14]},
       "paint":{"text-color": ["rgb", 0, 0, 0],
                "text-halo-color": ["rgb", 238, 238, 238],
                "text-halo-width":1 },
-      "source":"v2",
-      "source-layer":"popp",
-      "type":"symbol"
-     },
-     {  "filter": [
-        "all",
-        ["==", "poptyp", "Administrative capital 1"]
-      ],
-      "id":"popp_adcapital1",
-      "layout":{"text-allow-overlap":true,
-      "text-field":["step",["zoom"],["get","cartolb"],5,["get","romnam"]],
-      "text-font":["sans"],
-      "text-size":["step",["zoom"],9,1,14]},
-      "paint":{"text-color": ["rgb", 0, 0, 0],
-               "text-halo-color": ["rgb", 238, 238, 238],
-               "text-halo-width":1 },
-      "minzoom": 4,
-      "maxzoom": 8,
-      "source":"v2",
-      "source-layer":"popp",
-      "type":"symbol"
-     },
-     {  "filter": [
-        "all",
-        ["==", "poptyp", "Other populated place"]
-      ],
-      "id":"popp_other",
-      "layout":{"text-allow-overlap":true,
-      "text-field":["step",["zoom"],["get","cartolb"],5,["get","romnam"]],
-      "text-font":["sans"],
-      "text-size":["step",["zoom"],9,1,14]},
-      "paint":{"text-color": ["rgb", 0, 0, 0],
-               "text-halo-color": ["rgb", 238, 238, 238],
-               "text-halo-width":1 },
-      "minzoom": 6,
-      "maxzoom": 8,
-      "source":"v2",
-      "source-layer":"popp",
+      "source":"v",
+      "source-layer":"bnda_cty",
       "type":"symbol"
      }
  ],
