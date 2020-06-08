@@ -30,6 +30,17 @@
       "paint": {"fill-color": "rgba(220, 213, 143,1)"}
     },
      {
+      "id": "river",
+      "type": "line",
+      "source": "v",
+      "source-layer": "river",
+      "minzoom": 3,
+      "maxzoom": 5,
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": ["rgb", 33, 150, 243],
+                "line-width":0.5 }
+    },
+     {
       "id": "bndl25_intl",
       "type": "line",
       "source": "v",
