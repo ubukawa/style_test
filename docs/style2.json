@@ -15,7 +15,7 @@
         "https://www.unvt-test.com:3000/un-small_min/{z}/{x}/{y}.pbf"
       ], 
       "maxzoom": 5, 
-      "minzoom": 0, 
+      "minzoom": 3, 
       "attribution": "Test, <img src='https://unopengis.github.io/watermark/watermark.png'>"
     }
 }, 
@@ -178,11 +178,11 @@
       "layout":{"text-allow-overlap":true,
       "text-field":["step",["zoom"],["get","cartolb"],5,["get","romnam"]],
       "text-font":["sans"],
-      "text-size":["step",["zoom"],9,1,14]},
+      "text-size":9},
       "paint":{"text-color": ["rgb", 0, 0, 0],
                "text-halo-color": ["rgb", 238, 238, 238],
                "text-halo-width":1 },
-      "minzoom": 6,
+      "minzoom": 7,
       "maxzoom": 8,
       "source":"v2",
       "source-layer":"popp",
