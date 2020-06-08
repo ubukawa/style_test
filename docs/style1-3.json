@@ -10,8 +10,8 @@
       "attribution": "Test, <img src='https://unopengis.github.io/watermark/watermark.png'>"
     }
 }, 
-"sprite": "https://cyberjapandata.gsi.go.jp/vector/sprite/std",
-"glyphs": "https://cyberjapandata.gsi.go.jp/xyz/noto-jp/{fontstack}/{range}.pbf",
+"sprite": "https://ubukawa.github.io/style_test/docs/sprite/sprite",
+"glyphs": "https://ubukawa.github.io/style_test/docs/font/{fontstack}/{range}.pbf",
 "layers": [
     {
       "id": "back",
@@ -118,39 +118,47 @@
       "paint": {"line-color": "rgba(33, 150, 243, 1)"}
       },
     {
-      "id": "point1",
+      "id": "sea_lab",
+      "type": "symbol",
       "source": "v",
       "source-layer": "label_sea",
-      "type": "symbol",
-      "layout":{
-        "icon-image": "un",
-        "text-field": "",
-        "visibility": "visible"
+      "maxzoom": 7,
+      "minzoom": 2,
+      "layout": {
+       "text-field": "{name}",
+       "visibility": "visible",
+       "symbol-z-order": "auto",
+       "symbol-placement": "point",
+       "text-font": ["sans"],
+       "text-size": 12
+        },
+      "paint": {
+       "text-color": "rgba(18, 0, 255, 1)",
+       "text-halo-width": 1,
+       "text-halo-color": "rgba(252, 251, 251, 1)"
         }
     },
     {
-      "id": "point2",
+      "id": "cty_lab",
+      "type": "symbol",
       "source": "v",
       "source-layer": "label_b",
-      "type": "symbol",
-      "layout":{
-        "icon-image": "airfield",
-        "text-field": "",
-        "visibility": "visible"
-        } 
-     }, 
-     {
-      "id": "bnda_text",
-      "type":"symbol",
-      "source":"v",
-      "source-layer":"label_b",
-      "paint":{"text-color": ["rgb", 0, 0, 0],
-               "text-halo-color": ["rgb", 238, 238, 238],
-               "text-halo-width": 1 },
-      "layout":{
-      "text-field":"{maplab}",
-      "text-size": 12]}
-     }
+      "maxzoom": 7,
+      "minzoom": 2,
+      "layout": {
+       "text-field": "{maplab}",
+       "visibility": "visible",
+       "symbol-z-order": "auto",
+       "symbol-placement": "point",
+       "text-font": ["sans"],
+       "text-size": 12
+        },
+      "paint": {
+       "text-color": "rgba(0, 0, 0, 1)",
+       "text-halo-width": 1,
+       "text-halo-color": "rgba(252, 251, 251, 1)"
+        }
+    }
  ],
 "id": "vector-sample"
 }
