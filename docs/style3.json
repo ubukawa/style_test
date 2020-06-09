@@ -48,7 +48,17 @@
       "paint": {"fill-color": "rgba(220, 213, 143,1)"}
     },
     {
-      "id": "bnda2",
+      "id": "bnda2_hq",
+      "source": "v3",
+      "source-layer": "hq_bnd",
+      "type": "fill",
+      "minzoom": 6,
+      "maxzoom": 15,
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(255, 255, 190,1)"}
+    },
+    {
+      "id": "bnda2_c",
       "source": "v3",
       "source-layer": "c_bnd",
       "type": "fill",
@@ -71,6 +81,18 @@
       "layout": {"visibility": "visible"},
       "paint": {"line-color": ["rgb", 92, 99, 102],
                 "line-dasharray":[6,1,1,1,1,1],
+                "line-width":1 }
+    },
+     {
+      "id": "bndl_hq",
+      "type": "line",
+      "source": "v3",
+      "source-layer": "hq_bnd",
+      "minzoom": 6,
+      "maxzoom": 15,
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": ["rgb", 255, 0, 255],
+                "line-dasharray":[5,5],
                 "line-width":1 }
     },
      {
