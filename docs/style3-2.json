@@ -218,7 +218,7 @@
       "type": "symbol",
       "source": "v3",
       "source-layer": "place",
-      "minzoom": 6,
+      "minzoom": 7,
       "maxzoom": 15,
       "filter": ["all", ["==", "_source", "unhq_phyp"]],
       "layout": {
@@ -228,6 +228,7 @@
         "visibility": "visible"
       },
       "paint": {
+       "text-color": "rgba(0, 26, 255, 1)",
         "text-halo-color": "rgba(255, 254, 254, 1)",
         "text-halo-width": 1
       }
