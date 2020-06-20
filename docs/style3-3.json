@@ -115,6 +115,30 @@
                 "line-width":0.5 }
     },
      {
+      "id": "bndl25_coast",
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "LineString",
+          "MultiLineString"
+        ],
+         [ "match", [ "get", "bdytyp"], "Coastline", true, false],
+        false
+      ],
+      "type": "line",
+      "source": "v",
+      "source-layer": "bndl25",
+      "minzoom": 0,
+      "maxzoom": 6,
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": ["rgb", 33, 150, 243],
+                "line-width": 1
+                }
+    },
+     {
       "id": "bndl25_intl",
       "filter": [
         "match",
@@ -125,7 +149,7 @@
           "LineString",
           "MultiLineString"
         ],
-        true,
+         [ "match", [ "get", "bdytyp"], "International boundary", true, false],
         false
       ],
       "type": "line",
@@ -134,25 +158,13 @@
       "minzoom": 0,
       "maxzoom": 6,
       "layout": {"visibility": "visible"},
-      "paint": {"line-color": [
-                   "match",
-                   ["get","bdytyp"],
-                   "Coastline",
-                   ["rgb", 33, 150, 243],
-                   ["rgb", 92, 99, 102]
-                ],
-                 "line-dasharray": [6,1,1,1,1,1],
-                "line-width":[
-                   "match",
-                   ["get","bdytyp"],
-                   "International boundary",
-                   2,
-                   1
-                ]
+      "paint": {"line-color": ["rgb", 92, 99, 102],
+                "line-dasharray": [6,1,1,1,1,1],
+                "line-width":2
                 }
     },
      {
-      "id": "bndl_hq",
+      "id": "bndl25_other",
       "filter": [
         "match",
         [
@@ -162,7 +174,55 @@
           "LineString",
           "MultiLineString"
         ],
-        true,
+         [ "match", [ "get", "bdytyp"], ["Armistice or International administrative line","Other line of separation","Special boundary line"], true, false],
+        false
+      ],
+      "type": "line",
+      "source": "v",
+      "source-layer": "bndl25",
+      "minzoom": 0,
+      "maxzoom": 6,
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": ["rgb", 92, 99, 102],
+                "line-dasharray": [3,3],
+                "line-width":1
+                }
+    },
+     {
+      "id": "hq_bndl_coastline",
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "LineString",
+          "MultiLineString"
+        ],
+       [ "match", [ "get", "bdytype"], "Coastline", true, false],
+        false
+      ],
+      "type": "line",
+      "source": "v3",
+      "source-layer": "hq_bnd",
+      "minzoom": 6,
+      "maxzoom": 15,
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": ["rgb", 33, 150, 243],
+                "line-width":1 }
+    },
+     {
+      "id": "hq_bndl_international",
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "LineString",
+          "MultiLineString"
+        ],
+       [ "match", [ "get", "bdytype"], "Coastline", true, false],
         false
       ],
       "type": "line",
@@ -175,6 +235,7 @@
                 "line-dasharray":[5,5],
                 "line-width":1 }
     },
+
      {
       "id": "bndl_c",
       "filter": [
@@ -253,6 +314,32 @@
         "text-halo-color": "rgba(255, 254, 254, 1)",
         "text-halo-width": 1
       }
+    },
+     {
+      "id": "place_un_global_placep",
+      "filter": ["all", 
+                   ["==", "_source", "un_global_place"]
+                ],
+      "type": "symbol",
+      "source": "v3",
+      "source-layer": "place",
+      "minzoom": 6,
+      "maxzoom": 15,
+      "layout": {
+         "icon-image": "national_capital",
+         "text-field": "{romnam}",
+         "visibility": "visible",
+         "symbol-z-order": "auto",
+         "symbol-placement": "point",
+         "text-font": ["sans"],
+         "text-size": 12,
+         "text-offset": [1,1]
+          },
+      "paint": {
+       "text-color": "rgba(0, 0, 0, 1)",
+       "text-halo-width": 1,
+       "text-halo-color": "rgba(252, 251, 251, 1)"
+        }
     },
      {
       "id": "place_un_popp",
