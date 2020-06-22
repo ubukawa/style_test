@@ -1,0 +1,693 @@
+{"version": 8,"name": "test","metadata": {},
+"sources": {
+    "v": {
+      "type": "vector",
+      "tiles": [
+        "https://www.unvt-test.com:3000/un-small4/{z}/{x}/{y}.pbf"
+      ], 
+      "maxzoom": 3, 
+      "minzoom": 0, 
+      "attribution": "Test, <img src='https://unopengis.github.io/watermark/watermark.png'>"
+    },
+    "v2": {
+      "type": "vector",
+      "tiles": [
+        "https://www.unvt-test.com:3000/un-small_min/{z}/{x}/{y}.pbf"
+      ], 
+      "maxzoom": 5, 
+      "minzoom": 3, 
+      "attribution": "Test, <img src='https://unopengis.github.io/watermark/watermark.png'>"
+    },
+    "v3": {
+      "type": "vector",
+      "tiles": [
+        "https://www.unvt-test.com:3000/zxy/un-core/{z}/{x}/{y}.pbf"
+      ], 
+      "maxzoom": 15, 
+      "minzoom": 6, 
+      "attribution": "Test, <img src='https://unopengis.github.io/watermark/watermark.png'>"
+    }
+}, 
+"sprite": "https://ubukawa.github.io/style_test/docs/sprite/sprite",
+"glyphs": "https://ubukawa.github.io/style_test/docs/font/{fontstack}/{range}.pbf",
+"layers": [
+    {
+      "id": "back",
+      "type": "background",
+      "layout": {"visibility": "visible"},
+      "paint": {"background-color": "rgb(220, 237, 245)"}
+    },
+    {
+      "id": "bnda",
+      "source": "v",
+      "source-layer": "bnda",
+      "type": "fill",
+      "minzoom": 0,
+      "maxzoom": 6,
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(247,247,245,1)"}
+    },
+    {
+      "id": "bnda2_hq",
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "Polygon",
+          "MultiPolygon"
+        ],
+        true,
+        false
+      ],
+      "source": "v3",
+      "source-layer": "hq_bnd",
+      "type": "fill",
+      "minzoom": 6,
+      "maxzoom": 15,
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(247,247,245, 1)"}
+    },
+    {
+      "id": "bnda2_c",
+      "source": "v3",
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "Polygon",
+          "MultiPolygon"
+        ],
+        true,
+        false
+      ],
+      "source-layer": "c_bnd",
+      "type": "fill",
+      "minzoom": 6,
+      "maxzoom": 15,
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(247,247,245, 1)"}
+    },
+     {
+      "id": "river-medium",
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "LineString",
+          "MultiLineString"
+        ],
+        true,
+        false
+      ],
+      "type": "line",
+      "source": "v3",
+      "source-layer": "water",
+      "minzoom": 6,
+      "maxzoom": 8,
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": ["rgb", 33, 150, 243],
+                "line-width":0.5 }
+    },
+      {
+      "id": "bndl25_Coastline",
+      "type": "line",
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "LineString",
+          "MultiLineString"
+        ],
+         [ "match", [ "get", "bdytyp"], ["Coastline","Administrative boundary 1"], true, false],
+        false
+      ],
+      "source": "v",
+      "source-layer": "bndl",
+      "minzoom": 0,
+      "maxzoom": 6,
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": "rgba(155,174,180, 1)"}
+      },
+     {
+      "id": "bndl25_special",
+      "type": "line",
+      "source": "v",
+      "source-layer": "bndl",
+      "minzoom": 0,
+      "maxzoom": 6,
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "LineString",
+          "MultiLineString"
+        ],
+         [ "match", [ "get", "bdytyp"], ["Special boundary line"], true, false],
+        false
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": ["rgb", 60, 60, 60],
+                "line-dasharray":[6,1,1,1],
+                "line-width":1 }
+    },
+     {
+      "id": "bndl25_otherLOS",
+      "type": "line",
+      "source": "v",
+      "source-layer": "bndl",
+      "minzoom": 0,
+      "maxzoom": 6,
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "LineString",
+          "MultiLineString"
+        ],
+         [ "match", [ "get", "bdytyp"], ["Other line of separation"], true, false],
+        false
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": ["rgb", 60, 60, 60],
+                "line-dasharray":[1,1],
+                "line-width":1 }
+    },
+     {
+      "id": "bndl25_armistice_or_IAL",
+      "type": "line",
+      "source": "v",
+      "source-layer": "bndl",
+      "minzoom": 0,
+      "maxzoom": 6,
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "LineString",
+          "MultiLineString"
+        ],
+         [ "match", [ "get", "bdytyp"], ["Armistice or International administrative line"], true, false],
+        false
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": ["rgb", 60, 60, 60],
+                "line-dasharray":[4,4],
+                "line-width":1 }
+    },
+     {
+      "id": "bndl25_intl",
+      "type": "line",
+      "source": "v",
+      "source-layer": "bndl",
+      "minzoom": 0,
+      "maxzoom": 6,
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "LineString",
+          "MultiLineString"
+        ],
+         [ "match", [ "get", "bdytyp"], ["International boundary"], true, false],
+        false
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": ["rgb", 60, 60, 60],
+                "line-dasharray":[6,1,1,1,1,1],
+                "line-width":1 }
+    },
+     {
+      "id": "hq_bndl_coastline",
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "LineString",
+          "MultiLineString"
+        ],
+       [ "match", [ "get", "bdytyp"], "Coastline", true, false],
+        false
+      ],
+      "type": "line",
+      "source": "v3",
+      "source-layer": "hq_bnd",
+      "minzoom": 6,
+      "maxzoom": 15,
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": ["rgb", 155, 174, 180],
+                "line-width":1 }
+    },
+     {
+      "id": "hq_bndl_special",
+      "type": "line",
+      "source": "v3",
+      "source-layer": "hq_bnd",
+      "minzoom": 6,
+      "maxzoom": 15,
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "LineString",
+          "MultiLineString"
+        ],
+         [ "match", [ "get", "bdytyp"], ["Special boundary line"], true, false],
+        false
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": ["rgb", 60, 60, 60],
+                "line-dasharray":[6,1,1,1],
+                "line-width":1 }
+    },
+     {
+      "id": "hq_bndl_otherLOS",
+      "type": "line",
+      "source": "v3",
+      "source-layer": "hq_bnd",
+      "minzoom": 6,
+      "maxzoom": 15,
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "LineString",
+          "MultiLineString"
+        ],
+         [ "match", [ "get", "bdytyp"], ["Other line of separation"], true, false],
+        false
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": ["rgb", 60, 60, 60],
+                "line-dasharray":[1,1],
+                "line-width":1 }
+    },
+     {
+      "id": "hq_bndl_armistice_or_IAL",
+      "type": "line",
+      "source": "v3",
+      "source-layer": "hq_bnd",
+      "minzoom": 6,
+      "maxzoom": 15,
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "LineString",
+          "MultiLineString"
+        ],
+         [ "match", [ "get", "bdytyp"], ["Armistice or International administrative line"], true, false],
+        false
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": ["rgb", 60, 60, 60],
+                "line-dasharray":[4,4],
+                "line-width":1 }
+    },
+     {
+      "id": "hq_bndl_admin1",
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "LineString",
+          "MultiLineString"
+        ],
+         [ "match", [ "get", "bdytyp"], ["Administrative boundary 1"], true, false],
+        false
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": ["rgb", 255, 60, 60],
+                "line-dasharray":[6,1,1,1,1,1],
+                "line-width":1 },
+      "type": "line",
+      "source": "v3",
+      "source-layer": "hq_bnd",
+      "minzoom": 8,
+      "maxzoom": 15
+    },
+     {
+      "id": "hq_bndl_admin2",
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "LineString",
+          "MultiLineString"
+        ],
+         [ "match", [ "get", "bdytyp"], ["Administrative boundary 2"], true, false],
+        false
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": ["rgb", 60, 250, 60],
+                "line-dasharray":[6,1,1,1,1,1],
+                "line-width":1 },
+      "type": "line",
+      "source": "v3",
+      "source-layer": "hq_bnd",
+      "minzoom": 10,
+      "maxzoom": 15
+    },
+     {
+      "id": "hq_bndl_international",
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "LineString",
+          "MultiLineString"
+        ],
+         [ "match", [ "get", "bdytyp"], ["International boundary"], true, false],
+        false
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": ["rgb", 60, 60, 60],
+                "line-dasharray":[6,1,1,1,1,1],
+                "line-width":1 },
+      "type": "line",
+      "source": "v3",
+      "source-layer": "hq_bnd",
+      "minzoom": 6,
+      "maxzoom": 15
+    },
+     {
+      "id": "bndl_c_subnational2",
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "LineString",
+          "MultiLineString"
+        ],
+         [ "match", [ "get", "type"], ["Subnational 2"], true, false],
+        false
+      ],
+      "type": "line",
+      "source": "v3",
+      "source-layer": "c_bnd",
+      "minzoom": 10,
+      "maxzoom": 15,
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": ["rgb", 60, 250, 60],
+                "line-dasharray":[6,1,1,1,1,1],
+                "line-width":1 }
+    },
+     {
+      "id": "bndl_c_subnational1",
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "LineString",
+          "MultiLineString"
+        ],
+         [ "match", [ "get", "type"], ["Subnational 1"], true, false],
+        false
+      ],
+      "type": "line",
+      "source": "v3",
+      "source-layer": "c_bnd",
+      "minzoom": 8,
+      "maxzoom": 15,
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": ["rgb", 255, 60, 60],
+                "line-dasharray":[6,1,1,1,1,1],
+                "line-width":1 }
+    },
+     {
+      "id": "un-global-places_3",
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "Point",
+          "MultiPoint"
+        ],
+       [ "match", [ "get", "_source"], "un_global_places",
+       [ "match", [ "get", "type"],  ["Village", "Other Populated Places"],
+       true,false],
+       false],
+        false
+      ],
+      "type": "symbol",
+      "source": "v3",
+      "source-layer": "place",
+      "minzoom": 11,
+      "maxzoom": 15,
+      "layout": {
+         "text-field": "{placename1}",
+         "visibility": "visible",
+         "symbol-z-order": "auto",
+         "symbol-placement": "point",
+         "text-font": ["sans"],
+         "text-size": 10
+          },
+      "paint": {
+       "text-color": "rgba(0, 0, 0, 1)",
+       "text-halo-width": 1,
+       "text-halo-color": "rgba(252, 251, 251, 1)"
+        }
+    },
+     {
+      "id": "un-global-places_2",
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "Point",
+          "MultiPoint"
+        ],
+       [ "match", [ "get", "_source"], "un_global_places",
+       [ "match", [ "get", "type"],  ["Town", "Suburb"],
+       true,false],
+       false],
+        false
+      ],
+      "type": "symbol",
+      "source": "v3",
+      "source-layer": "place",
+      "minzoom": 9,
+      "maxzoom": 15,
+      "layout": {
+         "text-field": "{placename1}",
+         "visibility": "visible",
+         "symbol-z-order": "auto",
+         "symbol-placement": "point",
+         "text-font": ["sans"],
+         "text-size": 10
+          },
+      "paint": {
+       "text-color": "rgba(0, 0, 0, 1)",
+       "text-halo-width": 1,
+       "text-halo-color": "rgba(252, 251, 251, 1)"
+        }
+    },
+     {
+      "id": "un-global-places_1",
+      "filter": [
+        "match",["geometry-type"],["Point","MultiPoint"],
+         [ "match", [ "get", "_source"], "un_global_places",
+           [ "match", [ "get", "type"],  ["National Capital", "City"],true,false],
+          false],
+         false
+        ],
+      "type": "symbol",
+      "source": "v3",
+      "source-layer": "place",
+      "minzoom": 7,
+      "maxzoom": 15,
+      "layout": {
+         "icon-image": "national_capital",
+         "text-field": "{placename1}",
+         "visibility": "visible",
+         "symbol-z-order": "auto",
+         "symbol-placement": "point",
+         "text-font": ["sans"],
+         "text-size": 12,
+         "text-offset": [1,1]
+          },
+      "paint": {
+       "text-color": "rgba(0, 0, 0, 1)",
+       "text-halo-width": 1,
+       "text-halo-color": "rgba(252, 251, 251, 1)"
+        }
+    },
+     {
+      "id": "place_un_popp3",
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "Point",
+          "MultiPoint"
+        ],
+       [ "match", [ "get", "_source"], "unhq_popp",
+           [ "match", [ "get", "scl_id_code"],  ["1                       "],true,false],
+       false],
+        false
+      ],
+      "type": "symbol",
+      "source": "v3",
+      "source-layer": "place",
+      "minzoom": 12,
+      "maxzoom": 15,
+      "layout": {
+         "text-field": "{romnam}",
+         "visibility": "visible",
+         "symbol-z-order": "auto",
+         "symbol-placement": "point",
+         "text-font": ["sans"],
+         "text-size": 10
+          },
+      "paint": {
+       "text-color": "rgba(0, 0, 0, 1)",
+       "text-halo-width": 1,
+       "text-halo-color": "rgba(252, 251, 251, 1)"
+        }
+    },
+     {
+      "id": "place_un_popp2",
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "Point",
+          "MultiPoint"
+        ],
+       [ "match", [ "get", "_source"], "unhq_popp",
+           [ "match", [ "get", "scl_id_code"],  ["5                       "],true,false],
+       false],
+        false
+      ],
+      "type": "symbol",
+      "source": "v3",
+      "source-layer": "place",
+      "minzoom": 9,
+      "maxzoom": 15,
+      "layout": {
+         "text-field": "{romnam}",
+         "visibility": "visible",
+         "symbol-z-order": "auto",
+         "symbol-placement": "point",
+         "text-font": ["sans"],
+         "text-size": 12
+          },
+      "paint": {
+       "text-color": "rgba(0, 0, 0, 1)",
+       "text-halo-width": 1,
+       "text-halo-color": "rgba(252, 251, 251, 1)"
+        }
+    },
+     {
+      "id": "place_un_popp1",
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "Point",
+          "MultiPoint"
+        ],
+       [ "match", [ "get", "_source"], "unhq_popp",
+           [ "match", [ "get", "scl_id_code"],  ["10                      "],true,false],
+       false],
+        false
+      ],
+      "type": "symbol",
+      "source": "v3",
+      "source-layer": "place",
+      "minzoom": 6,
+      "maxzoom": 15,
+      "layout": {
+         "icon-image":  "national_capital",
+         "text-field": "{romnam}",
+         "visibility": "visible",
+         "symbol-z-order": "auto",
+         "symbol-placement": "point",
+         "text-font": ["sans"],
+         "text-size": 12,
+         "text-offset": [1,1]
+          },
+      "paint": {
+       "text-color": "rgba(0, 0, 0, 1)",
+       "text-halo-width": 1,
+       "text-halo-color": "rgba(252, 251, 251, 1)"
+        }
+    },
+    {
+      "id": "place_un_phyp",
+      "type": "symbol",
+      "source": "v3",
+      "source-layer": "place",
+      "minzoom": 7,
+      "maxzoom": 17,
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "Point",
+          "MultiPoint"
+        ],
+       [ "match", [ "get", "_source"], "unhq_phyp", true,false],
+        false
+      ],
+      "layout": {
+        "text-font": ["sans"],
+         "text-size": 10,
+        "text-field": "{name}",
+        "text-offset": [0, 0],
+        "visibility": "visible"
+      },
+      "paint": {
+       "text-color": "rgba(0, 26, 255, 1)",
+        "text-halo-color": "rgba(255, 254, 254, 1)",
+        "text-halo-width": 1
+      }
+    }
+ ],
+"id": "vector-sample"
+}
