@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset='utf-8' />
-<title>Display a map 1-3 </title>
+<title>Display a map 3-3 </title>
 <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 <script src='mapbox-gl.js'></script>
 <link href='mapbox-gl.css' rel='stylesheet' />
@@ -25,11 +25,11 @@ body { margin:0; padding:0; }
 var map = new mapboxgl.Map({
   container: 'map', 
   hash: true, 
-  style: './style1-3.json', // style file path
-  center: [0,0], // center [lng, lat]
-  zoom: 3, // zoom level at loading
-  maxZoom: 0, // min zoom
-  maxZoom: 6 // max zoom
+  style: './style3-3.json', // style file path
+  center: [0,51], // center [lng, lat]
+  zoom: 6, // zoom level at loading
+  minZoom: 4, // min zoom
+  maxZoom: 17 // max zoom
 });
 
 
