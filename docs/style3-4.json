@@ -656,6 +656,41 @@
        "text-halo-color": "rgba(252, 251, 251, 1)"
         }
     },
+     {
+      "id": "place_un_global_pois",
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "Point",
+          "MultiPoint"
+        ],
+       [ "match", [ "get", "_source"], "un_global_pois",true, false],
+        false
+      ],
+      "type": "symbol",
+      "source": "v3",
+      "source-layer": "place",
+      "minzoom": 8,
+      "maxzoom": 15,
+      "layout": {
+         "icon-image":  "national_capital",
+         "text-field": "{poiname}",
+         "visibility": "visible",
+         "symbol-z-order": "auto",
+         "symbol-placement": "point",
+         "text-font": ["sans"],
+         "text-size": 12,
+         "text-offset": [1,1]
+          },
+      "paint": {
+       "text-color": "rgba(0, 255, 0, 1)",
+       "text-halo-width": 1,
+       "text-halo-color": "rgba(252, 251, 251, 1)"
+        }
+    },
     {
       "id": "place_un_phyp",
       "type": "symbol",
