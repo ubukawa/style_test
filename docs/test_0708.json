@@ -239,7 +239,7 @@
           "LineString",
           "MultiLineString"
         ],
-         [ "match", [ "get", "bdytyp"], ["Coastline","Administrative boundary 1"], true, false],
+         [ "match", [ "get", "bdytyp"], ["Coastline"], true, false],
         false
       ],
       "source": "un-s",
@@ -249,6 +249,193 @@
       "layout": {"visibility": "visible"},
       "paint": {"line-color": "rgba(155,174,180, 1)"}
       },
+     {
+      "id": "bnd_l_hq_coastline",
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "LineString",
+          "MultiLineString"
+        ],
+       [ "match", [ "get", "bdytyp"], "Coastline", true, false],
+        false
+      ],
+      "type": "line",
+      "source": "v3",
+      "source-layer": "hq_bnd",
+      "minzoom": 6,
+      "maxzoom": 15,
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": ["rgb", 155, 174, 180],
+                "line-width":1 }
+    },
+     {
+      "id": "bnd_l_hq_adm2",
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "LineString",
+          "MultiLineString"
+        ],
+         [ "match", [ "get", "bdytyp"], ["Administrative boundary 2"], true, false],
+        false
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": ["rgb", 60, 250, 60],
+                "line-dasharray":[6,1,1,1,1,1],
+                "line-width":1 },
+      "type": "line",
+      "source": "v3",
+      "source-layer": "hq_bnd",
+      "minzoom": 6,
+      "maxzoom": 15
+    },
+     {
+      "id": "bnd_l_Nohq_adm2",
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "LineString",
+          "MultiLineString"
+        ],
+         [ "match", [ "get", "type"], ["Subnational 2"], true, false],
+        false
+      ],
+      "type": "line",
+      "source": "v3",
+      "source-layer": "c_bnd",
+      "minzoom": 10,
+      "maxzoom": 15,
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": ["rgb", 60, 250, 60],
+                "line-dasharray":[6,1,1,1,1,1],
+                "line-width":1 }
+    },
+      {
+      "id": "bnd_s_hq_adm2",
+      "type": "line",
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "LineString",
+          "MultiLineString"
+        ],
+         [ "match", [ "get", "bdytyp"], ["Administrative boundary 2"], true, false],
+        false
+      ],
+      "source": "un-s",
+      "source-layer": "hq_bnd",
+      "minzoom": 0,
+      "maxzoom": 6,
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": "rgba(153,51,255, 1)"}
+      },
+     {
+      "id": "bnd_l_hq_adm1",
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "LineString",
+          "MultiLineString"
+        ],
+         [ "match", [ "get", "bdytyp"], ["Administrative boundary 1"], true, false],
+        false
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": ["rgb", 255, 60, 60],
+                "line-dasharray":[6,1,1,1,1,1],
+                "line-width":1 },
+      "type": "line",
+      "source": "v3",
+      "source-layer": "hq_bnd",
+      "minzoom": 6,
+      "maxzoom": 15
+    },
+     {
+      "id": "bnd_l_Nohq_adm1",
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "LineString",
+          "MultiLineString"
+        ],
+         [ "match", [ "get", "type"], ["Subnational 1"], true, false],
+        false
+      ],
+      "type": "line",
+      "source": "v3",
+      "source-layer": "c_bnd",
+      "minzoom": 8,
+      "maxzoom": 15,
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": ["rgb", 255, 60, 60],
+                "line-dasharray":[6,1,1,1,1,1],
+                "line-width":1 }
+    },
+      {
+      "id": "bnd_s_hq_adm1",
+      "type": "line",
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "LineString",
+          "MultiLineString"
+        ],
+         [ "match", [ "get", "bdytyp"], ["Administrative boundary 1"], true, false],
+        false
+      ],
+      "source": "un-s",
+      "source-layer": "hq_bnd",
+      "minzoom": 0,
+      "maxzoom": 6,
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": "rgba(204,0,204, 1)"}
+      },
+     {
+      "id": "bnd_l_hq_otherLOS",
+      "type": "line",
+      "source": "v3",
+      "source-layer": "hq_bnd",
+      "minzoom": 6,
+      "maxzoom": 15,
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "LineString",
+          "MultiLineString"
+        ],
+         [ "match", [ "get", "bdytyp"], ["Other line of separation"], true, false],
+        false
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": ["rgb", 60, 60, 60],
+                "line-dasharray":[1,1],
+                "line-width":1 }
+    },
      {
       "id": "bnd_s_other",
       "type": "line",
@@ -266,6 +453,30 @@
           "MultiLineString"
         ],
          [ "match", [ "get", "bdytyp"], ["Other line of separation"], true, false],
+        false
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": ["rgb", 60, 60, 60],
+                "line-dasharray":[6,1,1,1],
+                "line-width":1 }
+    },
+     {
+      "id": "bnd_l_hq_special",
+      "type": "line",
+      "source": "v3",
+      "source-layer": "hq_bnd",
+      "minzoom": 6,
+      "maxzoom": 15,
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "LineString",
+          "MultiLineString"
+        ],
+         [ "match", [ "get", "bdytyp"], ["Special boundary line"], true, false],
         false
       ],
       "layout": {"visibility": "visible"},
@@ -298,6 +509,30 @@
                 "line-width":1 }
     },
      {
+      "id": "bnd_l_hq_armistice",
+      "type": "line",
+      "source": "v3",
+      "source-layer": "hq_bnd",
+      "minzoom": 6,
+      "maxzoom": 15,
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "LineString",
+          "MultiLineString"
+        ],
+         [ "match", [ "get", "bdytyp"], ["Armistice or International administrative line"], true, false],
+        false
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": ["rgb", 60, 60, 60],
+                "line-dasharray":[4,4],
+                "line-width":1 }
+    },
+     {
       "id": "bnd_s_armistice",
       "type": "line",
       "source": "un-s",
@@ -320,6 +555,30 @@
       "paint": {"line-color": ["rgb", 60, 60, 60],
                 "line-dasharray":[4,3],
                 "line-width":1 }
+    },
+     {
+      "id": "bnd_l_hq_intl",
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "LineString",
+          "MultiLineString"
+        ],
+         [ "match", [ "get", "bdytyp"], ["International boundary"], true, false],
+        false
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": ["rgb", 60, 60, 60],
+                "line-dasharray":[6,1,1,1,1,1],
+                "line-width":1 },
+      "type": "line",
+      "source": "v3",
+      "source-layer": "hq_bnd",
+      "minzoom": 6,
+      "maxzoom": 15
     },
      {
       "id": "bnd_s_intl",
@@ -345,221 +604,19 @@
                 "line-dasharray":[6,1,1,1,1,1],
                 "line-width":1 }
     },
-     {
-      "id": "hq_bndl_coastline",
-      "filter": [
-        "match",
-        [
-          "geometry-type"
-        ],
-        [
-          "LineString",
-          "MultiLineString"
-        ],
-       [ "match", [ "get", "bdytyp"], "Coastline", true, false],
-        false
-      ],
-      "type": "line",
-      "source": "v3",
-      "source-layer": "hq_bnd",
-      "minzoom": 6,
-      "maxzoom": 15,
-      "layout": {"visibility": "visible"},
-      "paint": {"line-color": ["rgb", 155, 174, 180],
-                "line-width":1 }
-    },
-     {
-      "id": "hq_bndl_special",
-      "type": "line",
-      "source": "v3",
-      "source-layer": "hq_bnd",
-      "minzoom": 6,
-      "maxzoom": 15,
-      "filter": [
-        "match",
-        [
-          "geometry-type"
-        ],
-        [
-          "LineString",
-          "MultiLineString"
-        ],
-         [ "match", [ "get", "bdytyp"], ["Special boundary line"], true, false],
-        false
-      ],
-      "layout": {"visibility": "visible"},
-      "paint": {"line-color": ["rgb", 60, 60, 60],
-                "line-dasharray":[6,1,1,1],
-                "line-width":1 }
-    },
-     {
-      "id": "hq_bndl_otherLOS",
-      "type": "line",
-      "source": "v3",
-      "source-layer": "hq_bnd",
-      "minzoom": 6,
-      "maxzoom": 15,
-      "filter": [
-        "match",
-        [
-          "geometry-type"
-        ],
-        [
-          "LineString",
-          "MultiLineString"
-        ],
-         [ "match", [ "get", "bdytyp"], ["Other line of separation"], true, false],
-        false
-      ],
-      "layout": {"visibility": "visible"},
-      "paint": {"line-color": ["rgb", 60, 60, 60],
-                "line-dasharray":[1,1],
-                "line-width":1 }
-    },
-     {
-      "id": "hq_bndl_armistice_or_IAL",
-      "type": "line",
-      "source": "v3",
-      "source-layer": "hq_bnd",
-      "minzoom": 6,
-      "maxzoom": 15,
-      "filter": [
-        "match",
-        [
-          "geometry-type"
-        ],
-        [
-          "LineString",
-          "MultiLineString"
-        ],
-         [ "match", [ "get", "bdytyp"], ["Armistice or International administrative line"], true, false],
-        false
-      ],
-      "layout": {"visibility": "visible"},
-      "paint": {"line-color": ["rgb", 60, 60, 60],
-                "line-dasharray":[4,4],
-                "line-width":1 }
-    },
-     {
-      "id": "hq_bndl_admin1",
-      "filter": [
-        "match",
-        [
-          "geometry-type"
-        ],
-        [
-          "LineString",
-          "MultiLineString"
-        ],
-         [ "match", [ "get", "bdytyp"], ["Administrative boundary 1"], true, false],
-        false
-      ],
-      "layout": {"visibility": "visible"},
-      "paint": {"line-color": ["rgb", 255, 60, 60],
-                "line-dasharray":[6,1,1,1,1,1],
-                "line-width":1 },
-      "type": "line",
-      "source": "v3",
-      "source-layer": "hq_bnd",
-      "minzoom": 8,
-      "maxzoom": 15
-    },
-     {
-      "id": "hq_bndl_admin2",
-      "filter": [
-        "match",
-        [
-          "geometry-type"
-        ],
-        [
-          "LineString",
-          "MultiLineString"
-        ],
-         [ "match", [ "get", "bdytyp"], ["Administrative boundary 2"], true, false],
-        false
-      ],
-      "layout": {"visibility": "visible"},
-      "paint": {"line-color": ["rgb", 60, 250, 60],
-                "line-dasharray":[6,1,1,1,1,1],
-                "line-width":1 },
-      "type": "line",
-      "source": "v3",
-      "source-layer": "hq_bnd",
-      "minzoom": 10,
-      "maxzoom": 15
-    },
-     {
-      "id": "hq_bndl_international",
-      "filter": [
-        "match",
-        [
-          "geometry-type"
-        ],
-        [
-          "LineString",
-          "MultiLineString"
-        ],
-         [ "match", [ "get", "bdytyp"], ["International boundary"], true, false],
-        false
-      ],
-      "layout": {"visibility": "visible"},
-      "paint": {"line-color": ["rgb", 60, 60, 60],
-                "line-dasharray":[6,1,1,1,1,1],
-                "line-width":1 },
-      "type": "line",
-      "source": "v3",
-      "source-layer": "hq_bnd",
-      "minzoom": 6,
-      "maxzoom": 15
-    },
-     {
-      "id": "bndl_c_subnational2",
-      "filter": [
-        "match",
-        [
-          "geometry-type"
-        ],
-        [
-          "LineString",
-          "MultiLineString"
-        ],
-         [ "match", [ "get", "type"], ["Subnational 2"], true, false],
-        false
-      ],
-      "type": "line",
-      "source": "v3",
-      "source-layer": "c_bnd",
-      "minzoom": 10,
-      "maxzoom": 15,
-      "layout": {"visibility": "visible"},
-      "paint": {"line-color": ["rgb", 60, 250, 60],
-                "line-dasharray":[6,1,1,1,1,1],
-                "line-width":1 }
-    },
-     {
-      "id": "bndl_c_subnational1",
-      "filter": [
-        "match",
-        [
-          "geometry-type"
-        ],
-        [
-          "LineString",
-          "MultiLineString"
-        ],
-         [ "match", [ "get", "type"], ["Subnational 1"], true, false],
-        false
-      ],
-      "type": "line",
-      "source": "v3",
-      "source-layer": "c_bnd",
-      "minzoom": 8,
-      "maxzoom": 15,
-      "layout": {"visibility": "visible"},
-      "paint": {"line-color": ["rgb", 255, 60, 60],
-                "line-dasharray":[6,1,1,1,1,1],
-                "line-width":1 }
-    },
+
+
+
+
+
+
+
+
+
+
+
+
+
      {
       "id": "un-global-places_3",
       "filter": [
