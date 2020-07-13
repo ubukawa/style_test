@@ -135,7 +135,6 @@
       "layout": {"visibility": "visible"},
       "paint": {"fill-color": "rgba(246,239,239,1)"}
     },
-
      {
       "id": "river-medium",
       "filter": [
@@ -174,13 +173,13 @@
         false
       ],
       "type": "line",
-      "source": "v",
-      "source-layer": "river",
+      "source": "un-s",
+      "source-layer": "water",
       "minzoom": 5,
       "maxzoom": 6,
       "layout": {"visibility": "visible"},
       "paint": {"line-color": "rgba(216, 227, 233,1)",
-                "line-width":0.5 }
+                "line-width":1 }
     },
      {
       "id": "river_l5",
@@ -197,13 +196,13 @@
         false
       ],
       "type": "line",
-      "source": "v",
-      "source-layer": "river",
+      "source": "un-s",
+      "source-layer": "water",
       "minzoom": 4,
       "maxzoom": 6,
       "layout": {"visibility": "visible"},
       "paint": {"line-color": "rgba(216, 227, 233,1)",
-                "line-width":0.5 }
+                "line-width":1 }
     },
      {
       "id": "river_l4",
@@ -220,8 +219,8 @@
         false
       ],
       "type": "line",
-      "source": "v",
-      "source-layer": "river",
+      "source": "un-s",
+      "source-layer": "water",
       "minzoom": 3,
       "maxzoom": 6,
       "layout": {"visibility": "visible"},
@@ -229,7 +228,7 @@
                 "line-width":0.5 }
     },
       {
-      "id": "bndl25_Coastline",
+      "id": "bnd_s_Coastline",
       "type": "line",
       "filter": [
         "match",
@@ -243,18 +242,18 @@
          [ "match", [ "get", "bdytyp"], ["Coastline","Administrative boundary 1"], true, false],
         false
       ],
-      "source": "v",
-      "source-layer": "bndl",
+      "source": "un-s",
+      "source-layer": "hq_bnd",
       "minzoom": 0,
       "maxzoom": 6,
       "layout": {"visibility": "visible"},
       "paint": {"line-color": "rgba(155,174,180, 1)"}
       },
      {
-      "id": "bndl25_arm_ial",
+      "id": "bnd_s_other",
       "type": "line",
-      "source": "v",
-      "source-layer": "bndl",
+      "source": "un-s",
+      "source-layer": "hq_bnd",
       "minzoom": 0,
       "maxzoom": 6,
       "filter": [
@@ -266,19 +265,19 @@
           "LineString",
           "MultiLineString"
         ],
-         [ "match", [ "get", "bdytyp"], ["Armistice or International administratie line"], true, false],
+         [ "match", [ "get", "bdytyp"], ["Other line of separation"], true, false],
         false
       ],
       "layout": {"visibility": "visible"},
       "paint": {"line-color": ["rgb", 60, 60, 60],
-                "line-dasharray":[4,3],
+                "line-dasharray":[6,1,1,1],
                 "line-width":1 }
     },
      {
-      "id": "bndl25_special",
+      "id": "bnd_s_special",
       "type": "line",
-      "source": "v",
-      "source-layer": "bndl",
+      "source": "un-s",
+      "source-layer": "hq_bnd",
       "minzoom": 0,
       "maxzoom": 6,
       "filter": [
@@ -299,34 +298,10 @@
                 "line-width":1 }
     },
      {
-      "id": "bndl25_otherLOS",
+      "id": "bnd_s_armistice",
       "type": "line",
-      "source": "v",
-      "source-layer": "bndl",
-      "minzoom": 0,
-      "maxzoom": 6,
-      "filter": [
-        "match",
-        [
-          "geometry-type"
-        ],
-        [
-          "LineString",
-          "MultiLineString"
-        ],
-         [ "match", [ "get", "bdytyp"], ["Other line of separation"], true, false],
-        false
-      ],
-      "layout": {"visibility": "visible"},
-      "paint": {"line-color": ["rgb", 60, 60, 60],
-                "line-dasharray":[1,1],
-                "line-width":1 }
-    },
-     {
-      "id": "bndl25_armistice_or_IAL",
-      "type": "line",
-      "source": "v",
-      "source-layer": "bndl",
+      "source": "un-s",
+      "source-layer": "hq_bnd",
       "minzoom": 0,
       "maxzoom": 6,
       "filter": [
@@ -343,14 +318,14 @@
       ],
       "layout": {"visibility": "visible"},
       "paint": {"line-color": ["rgb", 60, 60, 60],
-                "line-dasharray":[4,4],
+                "line-dasharray":[4,3],
                 "line-width":1 }
     },
      {
-      "id": "bndl25_intl",
+      "id": "bnd_s_intl",
       "type": "line",
-      "source": "v",
-      "source-layer": "bndl",
+      "source": "un-s",
+      "source-layer": "hq_bnd",
       "minzoom": 0,
       "maxzoom": 6,
       "filter": [
