@@ -113,6 +113,29 @@
       "layout": {"visibility": "visible"},
       "paint": {"fill-color": "rgba(236, 243, 221,1)"}
     },
+    {
+      "id": "landcover-s80",
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "Polygon",
+          "MultiPolygon"
+        ],
+         [ "match", [ "get", "gridcode"], 80, true, false],
+        false
+      ],
+      "source": "un-s",
+      "source-layer": "landcover",
+      "type": "fill",
+      "minzoom": 3,
+      "maxzoom": 6,
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(246,239,239,1)"}
+    },
+
      {
       "id": "river-medium",
       "filter": [
