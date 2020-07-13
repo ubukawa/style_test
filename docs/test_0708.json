@@ -1,5 +1,14 @@
 {"version": 8,"name": "test","metadata": {},
 "sources": {
+    "un-s": {
+      "type": "vector",
+      "tiles": [
+        "https://www.unvt-test.com:3000/un-small/{z}/{x}/{y}.pbf"
+      ], 
+      "maxzoom": 5, 
+      "minzoom": 0, 
+      "attribution": "Small, <img src='https://unopengis.github.io/watermark/watermark.png'>"
+    },
     "v": {
       "type": "vector",
       "tiles": [
@@ -29,9 +38,9 @@
       "paint": {"background-color": "rgb(220, 237, 245)"}
     },
     {
-      "id": "bnda",
-      "source": "v",
-      "source-layer": "bnda",
+      "id": "landmass-s",
+      "source": "un-s",
+      "source-layer": "landmass",
       "type": "fill",
       "minzoom": 0,
       "maxzoom": 6,
@@ -39,7 +48,7 @@
       "paint": {"fill-color": "rgba(247, 247, 245,1)"}
     },
     {
-      "id": "landmass",
+      "id": "landmass-l",
       "source": "v3",
       "filter": [
         "match",
@@ -59,6 +68,50 @@
       "maxzoom": 15,
       "layout": {"visibility": "visible"},
       "paint": {"fill-color": "rgba(247,247,245, 1)"}
+    },
+    {
+      "id": "landcover-s20",
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "Polygon",
+          "MultiPolygon"
+        ],
+         [ "match", [ "get", "gridcode"], 20, true, false],
+        false
+      ],
+      "source": "un-s",
+      "source-layer": "landcover",
+      "type": "fill",
+      "minzoom": 3,
+      "maxzoom": 6,
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(218, 237, 208,1)"}
+    },
+    {
+      "id": "landcover-s30",
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "Polygon",
+          "MultiPolygon"
+        ],
+         [ "match", [ "get", "gridcode"], 30, true, false],
+        false
+      ],
+      "source": "un-s",
+      "source-layer": "landcover",
+      "type": "fill",
+      "minzoom": 3,
+      "maxzoom": 6,
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(236, 243, 221,1)"}
     },
      {
       "id": "river-medium",
@@ -786,19 +839,31 @@
       }
     },
     {
-      "id": "sea_lab",
+      "id": "water_lab",
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "Point",
+          "MultiPoint"
+        ],
+       [ "match", [ "get", "status"], "0                ", true,false],
+        false
+      ],
       "type": "symbol",
-      "source": "v",
-      "source-layer": "label_sea",
-      "maxzoom": 7,
-      "minzoom": 2,
+      "source": "un-s",
+      "source-layer": "lab_water",
+      "maxzoom": 6,
+      "minzoom": 3,
       "layout": {
-       "text-field": "{name}",
+       "text-field": "{textstring}",
        "visibility": "visible",
        "symbol-z-order": "auto",
        "symbol-placement": "point",
        "text-font": ["sans"],
-       "text-size": 12
+       "text-size": ["get", "fontsize"]
         },
       "paint": {
        "text-color": "rgba(18, 0, 255, 1)",
@@ -808,13 +873,60 @@
     },
     {
       "id": "cty_lab",
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "Point",
+          "MultiPoint"
+        ],
+       [ "match", [ "get", "status"], 0, true,false],
+        false
+      ],
       "type": "symbol",
-      "source": "v",
-      "source-layer": "label_b",
-      "maxzoom": 7,
-      "minzoom": 3,
+      "source": "un-s",
+      "source-layer": "lab_cty",
+      "maxzoom": 6,
+      "minzoom": 1,
       "layout": {
-       "text-field": "{maplab}",
+       "text-field": "{textstring}",
+       "visibility": "visible",
+       "symbol-z-order": "auto",
+       "symbol-placement": "point",
+       "text-font": ["sans"],
+       "text-size": ["get", "fontsize"] 
+        },
+      "paint": {
+       "text-color": "rgba(0, 0, 0, 1)",
+       "text-halo-width": 1,
+       "text-halo-color": "rgba(252, 251, 251, 1)"
+        }
+    },
+
+    {
+      "id": "ATA_lab",
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "Polygon",
+          "MultiPolygon"
+        ],
+       [ "match", [ "get", "romnam"], "Antarctica", true,false],
+        false
+      ],
+      "type": "symbol",
+      "source": "un-s",
+      "source-layer": "bnda_cty",
+      "maxzoom": 5,
+      "minzoom": 0,
+      "layout": {
+       "text-allow-overlap":false,
+       "text-field": "{romnam}",
        "visibility": "visible",
        "symbol-z-order": "auto",
        "symbol-placement": "point",
@@ -827,6 +939,9 @@
        "text-halo-color": "rgba(252, 251, 251, 1)"
         }
     }
+
+
+
  ],
 "id": "vector-sample"
 }
