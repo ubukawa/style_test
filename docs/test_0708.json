@@ -287,8 +287,8 @@
         false
       ],
       "layout": {"visibility": "visible"},
-      "paint": {"line-color": ["rgb", 60, 250, 60],
-                "line-dasharray":[6,1,1,1,1,1],
+       "paint": {"line-color": ["rgb", 255, 150, 200],
+                "line-dasharray":[6,2,2,2,2,2,2,2],
                 "line-width":1 },
       "type": "line",
       "source": "v3",
@@ -313,11 +313,11 @@
       "type": "line",
       "source": "v3",
       "source-layer": "c_bnd",
-      "minzoom": 10,
+      "minzoom": 6,
       "maxzoom": 15,
       "layout": {"visibility": "visible"},
-      "paint": {"line-color": ["rgb", 60, 250, 60],
-                "line-dasharray":[6,1,1,1,1,1],
+       "paint": {"line-color": ["rgb", 255, 150, 200],
+                "line-dasharray":[6,2,2,2,2,2,2,2],
                 "line-width":1 }
     },
       {
@@ -340,7 +340,9 @@
       "minzoom": 0,
       "maxzoom": 6,
       "layout": {"visibility": "visible"},
-      "paint": {"line-color": "rgba(153,51,255, 1)"}
+       "paint": {"line-color": ["rgb", 255, 150, 200],
+                "line-dasharray":[6,2,2,2,2,2,2,2],
+                "line-width":1 }
       },
      {
       "id": "bnd_l_hq_adm1",
@@ -357,8 +359,8 @@
         false
       ],
       "layout": {"visibility": "visible"},
-      "paint": {"line-color": ["rgb", 255, 60, 60],
-                "line-dasharray":[6,1,1,1,1,1],
+      "paint": {"line-color": ["rgb", 200, 0, 100],
+                "line-dasharray":[6,2,2,2,2,2],
                 "line-width":1 },
       "type": "line",
       "source": "v3",
@@ -383,11 +385,11 @@
       "type": "line",
       "source": "v3",
       "source-layer": "c_bnd",
-      "minzoom": 8,
+      "minzoom": 6,
       "maxzoom": 15,
       "layout": {"visibility": "visible"},
-      "paint": {"line-color": ["rgb", 255, 60, 60],
-                "line-dasharray":[6,1,1,1,1,1],
+      "paint": {"line-color": ["rgb", 200, 0, 100],
+                "line-dasharray":[6,2,2,2,2,2],
                 "line-width":1 }
     },
       {
@@ -410,7 +412,9 @@
       "minzoom": 0,
       "maxzoom": 6,
       "layout": {"visibility": "visible"},
-      "paint": {"line-color": "rgba(204,0,204, 1)"}
+       "paint": {"line-color": ["rgb", 200, 0, 100],
+                "line-dasharray":[6,2,2,2,2,2],
+                "line-width":1 }
       },
      {
       "id": "bnd_l_hq_otherLOS",
@@ -437,11 +441,11 @@
                 "line-width":1 }
     },
      {
-      "id": "bnd_s_other",
+      "id": "bnd_sm_other",
       "type": "line",
       "source": "un-s",
       "source-layer": "hq_bnd",
-      "minzoom": 0,
+      "minzoom": 3,
       "maxzoom": 6,
       "filter": [
         "match",
@@ -457,9 +461,34 @@
       ],
       "layout": {"visibility": "visible"},
       "paint": {"line-color": ["rgb", 60, 60, 60],
-                "line-dasharray":[6,1,1,1],
+                "line-dasharray":[1,2],
                 "line-width":1 }
     },
+     {
+      "id": "bnd_ss_other",
+      "type": "line",
+      "source": "un-s",
+      "source-layer": "hq_bnd",
+      "minzoom": 0,
+      "maxzoom": 3,
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "LineString",
+          "MultiLineString"
+        ],
+         [ "match", [ "get", "bdytyp"], ["Other line of separation"], true, false],
+        false
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": ["rgb", 100, 100, 100],
+                "line-dasharray":[1,1],
+                "line-width":1 }
+    },
+
      {
       "id": "bnd_l_hq_special",
       "type": "line",
@@ -485,7 +514,7 @@
                 "line-width":1 }
     },
      {
-      "id": "bnd_s_special",
+      "id": "bnd_sm_special",
       "type": "line",
       "source": "un-s",
       "source-layer": "hq_bnd",
@@ -505,7 +534,31 @@
       ],
       "layout": {"visibility": "visible"},
       "paint": {"line-color": ["rgb", 60, 60, 60],
-                "line-dasharray":[6,1,1,1],
+                "line-dasharray":[2,2],
+                "line-width":1 }
+    },
+     {
+      "id": "bnd_ss_special",
+      "type": "line",
+      "source": "un-s",
+      "source-layer": "hq_bnd",
+      "minzoom": 0,
+      "maxzoom": 3,
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "LineString",
+          "MultiLineString"
+        ],
+         [ "match", [ "get", "bdytyp"], ["Special boundary line"], true, false],
+        false
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": ["rgb", 100, 100, 100],
+                "line-dasharray":[2,2],
                 "line-width":1 }
     },
      {
@@ -533,11 +586,35 @@
                 "line-width":1 }
     },
      {
-      "id": "bnd_s_armistice",
+      "id": "bnd_ss_armistice",
       "type": "line",
       "source": "un-s",
       "source-layer": "hq_bnd",
       "minzoom": 0,
+      "maxzoom": 3,
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "LineString",
+          "MultiLineString"
+        ],
+         [ "match", [ "get", "bdytyp"], ["Armistice or International administrative line"], true, false],
+        false
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": ["rgb", 100, 100, 100],
+                "line-dasharray":[3,3],
+                "line-width":1 }
+    },
+     {
+      "id": "bnd_sm_armistice",
+      "type": "line",
+      "source": "un-s",
+      "source-layer": "hq_bnd",
+      "minzoom": 3,
       "maxzoom": 6,
       "filter": [
         "match",
@@ -553,7 +630,7 @@
       ],
       "layout": {"visibility": "visible"},
       "paint": {"line-color": ["rgb", 60, 60, 60],
-                "line-dasharray":[4,3],
+                "line-dasharray":[2,2,4,2,2,2],
                 "line-width":1 }
     },
      {
@@ -581,11 +658,13 @@
       "maxzoom": 15
     },
      {
-      "id": "bnd_s_intl",
-      "type": "line",
+
+      "id": "bnd_sm_intl",
+      "paint": {"line-color": ["rgb", 60, 60, 60],"line-width":1 },
+     "type": "line",
       "source": "un-s",
       "source-layer": "hq_bnd",
-      "minzoom": 0,
+      "minzoom": 3,
       "maxzoom": 6,
       "filter": [
         "match",
@@ -599,22 +678,69 @@
          [ "match", [ "get", "bdytyp"], ["International boundary"], true, false],
         false
       ],
-      "layout": {"visibility": "visible"},
-      "paint": {"line-color": ["rgb", 60, 60, 60],
-                "line-dasharray":[6,1,1,1,1,1],
-                "line-width":1 }
+      "layout": {"visibility": "visible"}
     },
 
+     {
 
-
-
-
-
-
-
-
-
-
+      "id": "bnd_ss_intl",
+      "paint": {"line-color": ["rgb", 100, 100, 100],"line-width":1 },
+     "type": "line",
+      "source": "un-s",
+      "source-layer": "hq_bnd",
+      "minzoom": 0,
+      "maxzoom": 3,
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "LineString",
+          "MultiLineString"
+        ],
+         [ "match", [ "get", "bdytyp"], ["International boundary"], true, false],
+        false
+      ],
+      "layout": {"visibility": "visible"}
+    },
+     {
+      "id": "place_s_capital",
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "Point",
+          "MultiPoint"
+        ],
+       [ "match", [ "get", "poptype_code"], ["1                                                  ","2                                                  ","3                                                  "],
+           [ "match", [ "get", "scl_id_code"],  ["10                      "],true,false],
+       false],
+        false
+      ],
+      "type": "symbol",
+      "source": "un-s",
+      "source-layer": "un_popp",
+      "minzoom": 3,
+      "maxzoom": 6,
+      "layout": {
+         "icon-image":  "national_capital",
+         "text-field": "{romnam}",
+         "visibility": "visible",
+         "symbol-z-order": "auto",
+         "symbol-placement": "point",
+         "text-font": ["sans"],
+         "text-size": 12,
+         "text-offset": [1,1]
+          },
+      "paint": {
+       "text-color": "rgba(0, 0, 0, 1)",
+       "text-halo-width": 1,
+       "text-halo-color": "rgba(252, 251, 251, 1)"
+        }
+    },
 
 
      {
@@ -927,6 +1053,138 @@
         }
     },
     {
+      "id": "adm2_lab_nonHQ",
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "Polygon",
+          "MultiPolygon"
+        ],
+       true,
+        false
+      ],
+      "type": "symbol",
+      "source": "v3",
+      "source-layer": "c_bnd",
+      "maxzoom": 15,
+      "minzoom": 8,
+      "layout": {
+       "text-field": "{adm2_name}",
+       "visibility": "visible",
+       "symbol-z-order": "auto",
+       "symbol-placement": "point",
+       "text-font": ["sans"],
+       "text-size": 12
+        },
+      "paint": {
+       "text-color": "rgba(204, 102, 153, 1)",
+       "text-halo-width": 1,
+       "text-halo-color": "rgba(252, 251, 251, 1)"
+        }
+    },
+    {
+      "id": "adm2_lab_HQ",
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "Polygon",
+          "MultiPolygon"
+        ],
+       true,
+        false
+      ],
+      "type": "symbol",
+      "source": "v3",
+      "source-layer": "hq_bnd",
+      "maxzoom": 15,
+      "minzoom": 8,
+      "layout": {
+       "text-field": "{adm2nm}",
+       "visibility": "visible",
+       "symbol-z-order": "auto",
+       "symbol-placement": "point",
+       "text-font": ["sans"],
+       "text-size": 12
+        },
+      "paint": {
+       "text-color": "rgba(204, 102, 153, 1)",
+       "text-halo-width": 1,
+       "text-halo-color": "rgba(252, 251, 251, 1)"
+        }
+    },
+    {
+      "id": "adm1_lab_nonHQ",
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "Polygon",
+          "MultiPolygon"
+        ],
+       true,
+        false
+      ],
+      "type": "symbol",
+      "source": "v3",
+      "source-layer": "c_bnd",
+      "maxzoom": 8,
+      "minzoom": 6,
+      "layout": {
+       "text-field": "{adm1_name}",
+       "visibility": "visible",
+       "symbol-z-order": "auto",
+       "symbol-placement": "point",
+       "text-font": ["sans"],
+       "text-size": 12
+        },
+      "paint": {
+       "text-color": "rgba(100, 100, 100, 1)",
+       "text-halo-width": 1,
+       "text-halo-color": "rgba(252, 251, 251, 1)"
+        }
+    },
+    {
+      "id": "adm1_lab_HQ",
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "Polygon",
+          "MultiPolygon"
+        ],
+       true,
+        false
+      ],
+      "type": "symbol",
+      "source": "v3",
+      "source-layer": "hq_bnd",
+      "maxzoom": 8,
+      "minzoom": 6,
+      "layout": {
+       "text-field": "{adm1nm}",
+       "visibility": "visible",
+       "symbol-z-order": "auto",
+       "symbol-placement": "point",
+       "text-font": ["sans"],
+       "text-size": 12
+        },
+      "paint": {
+       "text-color": "rgba(100, 100, 100, 1)",
+       "text-halo-width": 1,
+       "text-halo-color": "rgba(252, 251, 251, 1)"
+        }
+    },
+    {
       "id": "cty_lab",
       "filter": [
         "match",
@@ -959,7 +1217,6 @@
        "text-halo-color": "rgba(252, 251, 251, 1)"
         }
     },
-
     {
       "id": "ATA_lab",
       "filter": [
