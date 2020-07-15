@@ -716,10 +716,10 @@
           "MultiPoint"
         ],
        [ "match", [ "get", "poptyp_code"], ["1                                                  "],  [ "match", [ "get", "cartolb"],["Alofi","Avarua","Sri Jayewardenepura Kotte"],false,true], 
-                                           ["2                                                  ","3                                                  "], true,
-       false],
+                                           ["2                                                  "],true,
+                                           ["3                                                  "], [ "match", [ "get", "scl_id_code"],["10                      "],true,false],
         false
-      ],
+      ],false],
       "type": "symbol",
       "source": "un-s",
       "source-layer": "un_popp",
