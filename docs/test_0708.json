@@ -715,8 +715,8 @@
           "Point",
           "MultiPoint"
         ],
-       [ "match", [ "get", "poptype_code"], ["1                                                  ","2                                                  ","3                                                  "],
-           [ "match", [ "get", "scl_id_code"],  ["10                      "],true,false],
+       [ "match", [ "get", "poptyp_code"], ["1                                                  "],  [ "match", [ "get", "cartolb"],["Alofi","Avarua","Sri Jayewardenepura Kotte"],false,true], 
+                                           ["2                                                  ","3                                                  "], true,
        false],
         false
       ],
@@ -727,13 +727,15 @@
       "maxzoom": 6,
       "layout": {
          "icon-image":  "national_capital",
-         "text-field": "{romnam}",
+         "text-field": "{cartolb}",
          "visibility": "visible",
          "symbol-z-order": "auto",
          "symbol-placement": "point",
          "text-font": ["sans"],
          "text-size": 12,
-         "text-offset": [1,1]
+         "text-offset": [1,1],
+         "text-allow-overlap": true,
+         "icon-allow-overlap": true
           },
       "paint": {
        "text-color": "rgba(0, 0, 0, 1)",
