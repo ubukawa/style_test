@@ -249,6 +249,50 @@
       "layout": {"visibility": "visible"},
       "paint": {"fill-color": "rgba(246,239,239,1)"}
     },
+    {
+      "id": "water",
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "Polygon",
+          "MultiPolygon"
+        ],
+         true, false
+      ],
+      "source": "osm-l",
+      "source-layer": "water",
+      "type": "fill",
+      "minzoom": 6,
+      "maxzoom": 15,
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(33,150,243,1)"}
+    },
+     {
+      "id": "river-large",
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "LineString",
+          "MultiLineString"
+        ],
+        true,
+        false
+      ],
+      "type": "line",
+      "source": "osm-l",
+      "source-layer": "water",
+      "minzoom": 7,
+      "maxzoom": 15,
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": ["rgb", 33, 150, 243],
+                "line-width": 0.5 }
+    },
      {
       "id": "river-medium",
       "filter": [
@@ -270,7 +314,7 @@
       "maxzoom": 7,
       "layout": {"visibility": "visible"},
       "paint": {"line-color": ["rgb", 33, 150, 243],
-                "line-width":0.5 }
+                "line-width": 0.5 }
     },
      {
       "id": "river_l6",
