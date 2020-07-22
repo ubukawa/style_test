@@ -30,7 +30,7 @@
     "osm-s-road": {
       "type": "vector",
       "tiles": [
-        "https://www.unvt-test.com:3000/un-small-osm0716-road-error/{z}/{x}/{y}.pbf"
+        "https://www.unvt-test.com:3000/un-small-osm0716-road/{z}/{x}/{y}.pbf"
       ], 
       "maxzoom": 5, 
       "minzoom": 3, 
@@ -401,7 +401,7 @@
       ],
       "type": "line",
       "source": "osm-s-road",
-      "source-layer": "hq_bnd",
+      "source-layer": "road",
       "minzoom": 5,
       "maxzoom": 6,
       "layout": {"visibility": "visible"},
