@@ -1,0 +1,16 @@
+{
+  "tilejson": "2.2.0",
+  "tiles": ["https://optgeo.github.io/kokoromi-nz/zxy/{z}/{x}/{y}.pbf"],
+  "name": "kokoromi-nz",
+  "attribution": "test",
+  "maxzoom": 14,
+  "minzoom": 5,
+  "bounds": [-180,-50.00,180.00,60.00],
+  "center": [0,0,0],
+  "vector_layers": [{
+    "id": "test",
+    "description": "test",
+    "maxzoom": 14,
+    "minzoom": 6
+  }]
+}
