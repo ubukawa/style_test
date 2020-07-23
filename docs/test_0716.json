@@ -16,12 +16,48 @@
       ], 
       "maxzoom": 3, 
       "minzoom": 0, 
-      "attribution": "Test Map Plain, <img src='https://unopengis.github.io/watermark/watermark.png'>"
+      "attribution": "Test, <img src='https://unopengis.github.io/watermark/watermark.png'>"
+    },
+    "osm-s-place": {
+      "type": "vector",
+      "tiles": [
+        "https://www.unvt-test.com:3000/un-small-osm0716-place/{z}/{x}/{y}.pbf"
+      ], 
+      "maxzoom": 5, 
+      "minzoom": 5, 
+      "attribution": "Small, <img src='https://unopengis.github.io/watermark/watermark.png'>"
+    },
+    "osm-s-road": {
+      "type": "vector",
+      "tiles": [
+        "https://www.unvt-test.com:3000/un-small-osm0716-road/{z}/{x}/{y}.pbf"
+      ], 
+      "maxzoom": 5, 
+      "minzoom": 3, 
+      "attribution": "Small, <img src='https://unopengis.github.io/watermark/watermark.png'>"
+    },
+    "osm-l": {
+      "type": "vector",
+      "tiles": [
+        "https://www.unvt-test.com:3000/zxy/osm_0720/{z}/{x}/{y}.pbf"
+      ], 
+      "maxzoom": 15, 
+      "minzoom": 6, 
+      "attribution": "Test, <img src='https://unopengis.github.io/watermark/watermark.png'>"
     },
     "v3": {
       "type": "vector",
       "tiles": [
         "https://www.unvt-test.com:3000/zxy/un-core0708/{z}/{x}/{y}.pbf"
+      ], 
+      "maxzoom": 15, 
+      "minzoom": 6, 
+      "attribution": "Test, <img src='https://unopengis.github.io/watermark/watermark.png'>"
+    },
+    "un-sub": {
+      "type": "vector",
+      "tiles": [
+        "https://www.unvt-test.com:3000/zxy/un-sub0708/{z}/{x}/{y}.pbf"
       ], 
       "maxzoom": 15, 
       "minzoom": 6, 
@@ -40,6 +76,18 @@
     {
       "id": "landmass-s",
       "source": "un-s",
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "Polygon",
+          "MultiPolygon"
+        ],
+        true,
+        false
+      ],
       "source-layer": "landmass",
       "type": "fill",
       "minzoom": 0,
@@ -135,6 +183,116 @@
       "layout": {"visibility": "visible"},
       "paint": {"fill-color": "rgba(246,239,239,1)"}
     },
+    {
+      "id": "landcover-m20",
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "Polygon",
+          "MultiPolygon"
+        ],
+         [ "match", [ "get", "gridcode"], 20, true, false],
+        false
+      ],
+      "source": "un-sub",
+      "source-layer": "landcover",
+      "type": "fill",
+      "minzoom": 6,
+      "maxzoom": 9,
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(218, 237, 208,1)"}
+    },
+    {
+      "id": "landcover-m30",
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "Polygon",
+          "MultiPolygon"
+        ],
+         [ "match", [ "get", "gridcode"], 30, true, false],
+        false
+      ],
+      "source": "un-sub",
+      "source-layer": "landcover",
+      "type": "fill",
+      "minzoom": 6,
+      "maxzoom": 9,
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(236, 243, 221,1)"}
+    },
+    {
+      "id": "landcover-m80",
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "Polygon",
+          "MultiPolygon"
+        ],
+         [ "match", [ "get", "gridcode"], 80, true, false],
+        false
+      ],
+      "source": "un-sub",
+      "source-layer": "landcover",
+      "type": "fill",
+      "minzoom": 6,
+      "maxzoom": 9,
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(246,239,239,1)"}
+    },
+    {
+      "id": "water",
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "Polygon",
+          "MultiPolygon"
+        ],
+         true, false
+      ],
+      "source": "osm-l",
+      "source-layer": "water",
+      "type": "fill",
+      "minzoom": 6,
+      "maxzoom": 15,
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(33,150,243,1)"}
+    },
+     {
+      "id": "river-large",
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "LineString",
+          "MultiLineString"
+        ],
+        true,
+        false
+      ],
+      "type": "line",
+      "source": "osm-l",
+      "source-layer": "water",
+      "minzoom": 7,
+      "maxzoom": 15,
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": ["rgb", 33, 150, 243],
+                "line-width": 0.5 }
+    },
      {
       "id": "river-medium",
       "filter": [
@@ -156,7 +314,7 @@
       "maxzoom": 7,
       "layout": {"visibility": "visible"},
       "paint": {"line-color": ["rgb", 33, 150, 243],
-                "line-width":0.5 }
+                "line-width": 0.5 }
     },
      {
       "id": "river_l6",
@@ -226,6 +384,52 @@
       "layout": {"visibility": "visible"},
       "paint": {"line-color": "rgba(216, 227, 233,1)",
                 "line-width":0.5 }
+    },
+     {
+      "id": "road_s",
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "LineString",
+          "MultiLineString"
+        ],
+         [ "match", [ "get", "z_order"], [1,3,5,7], true, false],
+        false
+      ],
+      "type": "line",
+      "source": "osm-s-road",
+      "source-layer": "road",
+      "minzoom": 5,
+      "maxzoom": 6,
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": "rgba(170, 170, 170,1)",
+                "line-width":0.5 }
+    },
+     {
+      "id": "road_m",
+      "filter": [
+        "match",
+        [
+          "geometry-type"
+        ],
+        [
+          "LineString",
+          "MultiLineString"
+        ],
+        true,
+        false
+      ],
+      "type": "line",
+      "source": "osm-l",
+      "source-layer": "road",
+      "minzoom": 6,
+      "maxzoom": 15,
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": "rgba(170, 170, 170,1)",
+                "line-width":1 }
     },
       {
       "id": "bnd_s_Coastline",
@@ -1062,8 +1266,8 @@
           "geometry-type"
         ],
         [
-          "Polygon",
-          "MultiPolygon"
+          "Point",
+          "MultiPoint"
         ],
        true,
         false
@@ -1095,8 +1299,8 @@
           "geometry-type"
         ],
         [
-          "Polygon",
-          "MultiPolygon"
+          "Point",
+          "MultiPoint"
         ],
        true,
         false
@@ -1128,8 +1332,8 @@
           "geometry-type"
         ],
         [
-          "Polygon",
-          "MultiPolygon"
+          "Point",
+          "MultiPoint"
         ],
        true,
         false
@@ -1161,8 +1365,8 @@
           "geometry-type"
         ],
         [
-          "Polygon",
-          "MultiPolygon"
+          "Point",
+          "MultiPoint"
         ],
        true,
         false
